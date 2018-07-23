@@ -18,10 +18,15 @@
 <body>
     <!-- 会社ロゴ -->
     <a href="/"><img src="./images/common/logo01.gif"></a>
-    <form method="GET" name="searchForm" id="searchForm" action="KenshuList">
 
         <div class="searchTypeLine"></div>
         <div class="searchJoken-box">
+            <form method="GET" name="searchForm" id="searchForm" action="List">
+            <input type="submit" value="社員リストへ">
+            </form>
+
+            <strong>研修実績リスト</strong>
+            <form method="GET" name="searchForm" id="searchForm" action="KenshuList">
             <select name="searchType" id="searchType-name" class="searchType-name" onchange="submit(this.form)">
                 <option value="ALL"   <%=(bean.getPrevSearchNendo().equals("ALL" ))? "selected":"" %>>すべて</option>
                 <option value="2015"  <%=(bean.getPrevSearchNendo().equals("2015" ))? "selected":"" %> >2015</option>
@@ -31,7 +36,6 @@
                 <option value="2019"   <%=(bean.getPrevSearchNendo().equals("2019" ))? "selected":"" %>>2019</option>
             </select>
 
-                <strong>研修実績リスト</strong>
             <hr>
             <table class="searchResult-table">
                 <tr>

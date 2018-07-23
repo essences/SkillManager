@@ -51,12 +51,12 @@ public class ListServlet extends HttpServlet {
 
          String[] idList =  request.getParameterValues("employee_no");
 
-         SearchSort searchSort = SearchSort.valueOf( request.getParameter("searchSort") );
-         SearchType searchType =SearchType.valueOf(  request.getParameter("searchType") );
+         SearchSort searchSort = SearchSort.valueOf( (request.getParameter("searchSort")==null)?SearchSort.名前.name():request.getParameter("searchSort") );
+         SearchType searchType =SearchType.valueOf(  (request.getParameter("searchType")==null)?SearchType.年次.name():request.getParameter("searchType") );
          String searchJoken =request.getParameter("searchJoken");
          String prevSearchJoken =searchJoken;
 
-         if(searchType== SearchType.年次 && searchJoken.length()!=0)
+         if( searchType== SearchType.年次 && searchJoken!=null && searchJoken.length()!=0 )
          {
              try {
             int i =Integer.parseInt( searchJoken );
@@ -94,6 +94,18 @@ public class ListServlet extends HttpServlet {
                  pw.print( bean.getCSV() );
              }
              return;
+          } else
+          {
+              String LoginName = (request.getParameter("loginname")==null)?"共創いえい":request.getParameter("loginname");
+              if(!LoginName.equals("共創いえい"))
+              {
+                  RequestDispatcher disp = request.getRequestDispatcher( "/index.jsp" );
+                  disp.forward( request, response );
+                  return;
+              }
+
+              request.getSession().setAttribute("LoginName", LoginName);
+              bean = new ListBean();
           }
 
 
@@ -109,7 +121,7 @@ public class ListServlet extends HttpServlet {
          bean.setPrevsearchJoken(prevSearchJoken);
 
          request.setAttribute( "bean", bean );
-         RequestDispatcher disp = request.getRequestDispatcher( "/index.jsp" );
+         RequestDispatcher disp = request.getRequestDispatcher( "/shainlist.jsp" );
          disp.forward( request, response );
     }
 
