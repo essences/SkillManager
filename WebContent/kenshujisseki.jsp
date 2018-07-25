@@ -12,22 +12,35 @@
     <link rel="stylesheet" type="text/css" href="./stylesheets/umi_search_list.css">
     <script type="text/javascript" src="./javascripts/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="./javascripts/umi_jukou_list.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script type="text/javascript" >
+    $(function() {
+        $('#yotei1').datepicker({dateFormat: 'yy-mm-dd'});
+        $('#yotei2').datepicker({dateFormat: 'yy-mm-dd'});
+        $('#yotei3').datepicker({dateFormat: 'yy-mm-dd'});
+
+    });
+    </script>
+
     <meta charset="UTF-8">
 </head>
 
 <body>
     <!-- 会社ロゴ -->
     <a href="/"><img src="./images/common/logo01.gif"></a>
+            <form method="GET" name="searchForm1" id="searchForm" action="List">
+
+            </form>
+           <form method="GET" name="registForm" id="searchForm" action="RegistKenshu">
 
         <div class="searchTypeLine"></div>
         <div class="searchJoken-box">
-            <form method="GET" name="searchForm" id="searchForm" action="List">
-            <input type="submit" value="社員リストへ">
-            </form>
-
+            <input type="button" value="社員リストへ" onClick="document.searchForm1.submit()"><br>
             <strong>研修実績リスト</strong>
-            <form method="GET" name="searchForm" id="searchForm" action="KenshuList">
-            <select name="searchType" id="searchType-name" class="searchType-name" onchange="submit(this.form)">
+          <strong> 年度：</strong> <select name="searchType" id="searchType-name" class="searchType-name" onchange="submit(this.form)">
                 <option value="ALL"   <%=(bean.getPrevSearchNendo().equals("ALL" ))? "selected":"" %>>すべて</option>
                 <option value="2015"  <%=(bean.getPrevSearchNendo().equals("2015" ))? "selected":"" %> >2015</option>
                 <option value="2016"   <%=(bean.getPrevSearchNendo().equals("2016" ))? "selected":"" %>>2016</option>
@@ -40,7 +53,9 @@
             <table class="searchResult-table">
                 <tr>
                     <td>研修タイプ</td>
-                    <td>予定日付</td>
+                    <td>予定日付1</td>
+                    <td>予定日付2</td>
+                    <td>予定日付3</td>
                     <td>実施意図</td>
                     <td></td>
                 </tr>
@@ -55,7 +70,13 @@
                         </div>
                     </td>
                     <td>
-                              <input type="text"  name="kaisai_yotei" >
+                              <input type="text"  name="yotei1" id="yotei1">
+                    </td>
+                    <td>
+                              <input type="text"  name="yotei2" id="yotei2">
+                    </td>
+                    <td>
+                              <input type="text"  name="yotei3" id="yotei3">
                     </td>
                     <td>
                               <input type="textarea	"  name="jisshi_ito" >

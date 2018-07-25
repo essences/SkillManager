@@ -140,7 +140,64 @@ public class KenshuDao extends Dao
         return list;
     }
 
+    private static final String KENSHUJISSEKI_INSERT_SQL =
+            "INSERT INTO `kyoso`.`kenshujisseki`\r\n" +
+            "(`YOTEIDATE`,\r\n" +
+            "`YOTEIDATE2`,\r\n" +
+            "`YOTEIDATE3`,\r\n" +
+            "`KENSHUTYPEID`,\r\n" +
+            "`JISSHI_ITO` )\r\n" +
+            "VALUES\r\n" +
+            "("
+            + "STR_TO_DATE(?,'%Y-%m-%d'),";
+
+
+    public void registKenshu(
+            String parameter,
+            String parameter2,
+            String parameter3,
+            String parameter4,
+            String parameter5
+            ) throws SQLException
+    {
+        StringBuffer sb = new StringBuffer(KENSHUJISSEKI_INSERT_SQL);
+
+
+        if( !parameter3.equals("") )
+        {
+            sb.append("STR_TO_DATE( \"" +  parameter3 + "\" ,'%Y-%m-%d'),");
+        }
+        else
+        {
+            sb.append("NULL,");
+        }
+        if( !parameter4.equals("") )
+        {
+            sb.append("STR_TO_DATE( \"" +  parameter4 + "\" ,'%Y-%m-%d'),");
+        }
+        else
+        {
+            sb.append("NULL,");
+        }
+
+        sb.append("?,?);");
+
+        System.out.println(sb.toString());
 
 
 
+        try ( PreparedStatement stmt = con.prepareStatement( sb.toString() );)
+        {
+            stmt.setString(1, parameter2 );
+
+
+            stmt.setString(2, parameter );
+            stmt.setString(3, parameter5 );
+
+            stmt.executeUpdate();
+
+        }
+
+
+    }
 }
