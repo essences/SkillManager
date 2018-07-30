@@ -18,7 +18,7 @@ public class KenshuDao extends Dao
     }
 
 
-    private static final String KENSHU_JISSEKI_SQL =
+    private static final String KENSHU_JISSEKI_LIST_SQL =
             "SELECT `kenshujisseki_view`.`KENSHUJISSEKI`,\r\n" +
             "    `kenshujisseki_view`.`KAISAIDATE`,\r\n" +
             "    `kenshujisseki_view`.`KAISAIDATE2`,\r\n" +
@@ -46,7 +46,7 @@ public class KenshuDao extends Dao
     {
         List<Kenshujisseki_viewVo> list;
 
-        StringBuffer sb = new StringBuffer(KENSHU_JISSEKI_SQL);
+        StringBuffer sb = new StringBuffer(KENSHU_JISSEKI_LIST_SQL);
 
         if( nendo!= 0 )
         {
@@ -98,6 +98,77 @@ public class KenshuDao extends Dao
         return list;
     }
 
+    private static final String KENSHU_JISSEKI_SQL =
+            "SELECT `kenshujisseki_view`.`KENSHUJISSEKI`,\r\n" +
+            "    `kenshujisseki_view`.`KAISAIDATE`,\r\n" +
+            "    `kenshujisseki_view`.`KAISAIDATE2`,\r\n" +
+            "    `kenshujisseki_view`.`KAISAIDATE3`,\r\n" +
+            "    `kenshujisseki_view`.`TITLE`,\r\n" +
+            "    `kenshujisseki_view`.`YOTEIDATE`,\r\n" +
+            "    `kenshujisseki_view`.`YOTEIDATE2`,\r\n" +
+            "    `kenshujisseki_view`.`YOTEIDATE3`,\r\n" +
+            "    `kenshujisseki_view`.`KENSHUTYPEID`,\r\n" +
+            "    `kenshujisseki_view`.`KOUSHICOMPANY`,\r\n" +
+            "    `kenshujisseki_view`.`KOUSHINAME`,\r\n" +
+            "    `kenshujisseki_view`.`COST`,\r\n" +
+            "    `kenshujisseki_view`.`BASECOST`,\r\n" +
+            "    `kenshujisseki_view`.`IS_EACH_COST`,\r\n" +
+            "    `kenshujisseki_view`.`NUMDAYS`,\r\n" +
+            "    `kenshujisseki_view`.`JISSHI_ITO`,\r\n" +
+            "    `kenshujisseki_view`.`NERAI`,\r\n" +
+            "    `kenshujisseki_view`.`GAIYOU`\r\n" +
+            "FROM `kyoso`.`kenshujisseki_view`;\r\n" +
+            "";
+
+            //" ORDER BY `YOTEIDATE`";
+
+    public Kenshujisseki_viewVo getKenshuJisseki(String  kenshuJissekiId ) throws SQLException
+    {
+
+        Kenshujisseki_viewVo vo = new  Kenshujisseki_viewVo();
+        StringBuffer sb = new StringBuffer(KENSHU_JISSEKI_SQL);
+
+        sb.append(" WHERE ");
+        sb.append(" KENSHUJISSEKI = ?;");
+
+        System.out.println(sb.toString());
+
+        try ( PreparedStatement stmt = con.prepareStatement( sb.toString() );)
+        {
+
+            stmt.setString(1, kenshuJissekiId );
+
+            ResultSet rset = stmt.executeQuery();
+
+            while (rset.next())
+            {
+
+                vo.setKenshujisseki(	rset.getInt(	"KENSHUJISSEKI"));
+
+                vo.setKoushicompany( 	rset.getString	("KOUSHICOMPANY")	);
+                vo.setKoushiname(		rset.getString(	"KOUSHINAME")	);
+                vo.setTitle(			rset.getString(	"TITLE")			);
+                vo.setBasecost(			rset.getString(	"BASECOST")		);
+                vo.setNumdays(			rset.getInt(	"NUMDAYS")			);
+                vo.setIs_each_cost(		rset.getByte(	"IS_EACH_COST")	);
+                vo.setYoteidate(		rset.getDate(	"YOTEIDATE")		);
+                vo.setYoteidate2(		rset.getDate(	"YOTEIDATE2")		);
+                vo.setYoteidate3(		rset.getDate(	"YOTEIDATE3")		);
+
+                vo.setKaisaidate(		rset.getDate(	"KAISAIDATE") 			);
+                vo.setKaisaidate2(		rset.getDate(	"KAISAIDATE2") 			);
+                vo.setKaisaidate3(		rset.getDate(	"KAISAIDATE3") 			);
+
+                vo.setNumdays(			rset.getInt(	"NUMDAYS")				);
+                vo.setTitle(			rset.getString(	"TITLE")				);
+                vo.setJisshi_ito(		rset.getString(	"JISSHI_ITO")			);
+
+            }
+        }
+
+        return vo;
+    }
+
 
 
     private static final String KENSHU_MASTER_SQL =
@@ -139,6 +210,9 @@ public class KenshuDao extends Dao
 
         return list;
     }
+
+
+
 
     private static final String KENSHUJISSEKI_INSERT_SQL =
             "INSERT INTO `kyoso`.`kenshujisseki`\r\n" +

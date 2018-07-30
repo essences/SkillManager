@@ -25,6 +25,13 @@ public class ListBean implements List<Shainmaster_wo_retire_viewVo>
     private String prevsearchJoken;
 
 
+    private String nendo="2018";
+    public String getPrevSearchNendo()
+    {
+        return nendo;
+    }
+
+
     public SearchSort getPrevSearchSort() {
         return prevSearchSort;
     }

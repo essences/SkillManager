@@ -9,3 +9,32 @@ $(function() {
     });
 
 });
+
+function test()
+{
+  alert('testアラート');
+}
+function allchecktrue()
+{
+    var elementsCount = document.searchForm.elements.length;
+    for( i=0 ; i<elementsCount ; i++ )
+    {
+        document.searchForm.elements[i].checked = true;
+    }
+}
+function allcheckfalse()
+{
+    var elementsCount = document.searchForm.elements.length;
+    for( i=0 ; i<elementsCount ; i++ )
+    {
+        document.searchForm.elements[i].checked = false;
+    }
+}
+function allcheck(tf)
+  {
+      var elementsCount = document.searchForm.elements.length;
+      for( i=0 ; i<elementsCount ; i++ )
+      {
+          document.searchForm.elements[i].checked = tf;
+      }
+  }

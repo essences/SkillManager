@@ -16,51 +16,58 @@
     <script type="text/javascript" src="./javascripts/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="./javascripts/umi_search_list.js"></script>
     <meta charset="UTF-8">
-       <script type="text/javascript">
-    function allcheck( tf ) {
-           var ElementsCount = document.searchForm.elements.length;
-           for( i=0 ; i<ElementsCount ; i++ ) {
-          document.searchForm.elements[i].checked = tf;
-           }
-    }
-    </script>
+
 </head>
 
 <body>
     <!-- 会社ロゴ -->
     <a href="/"><img src="./images/common/logo01.gif"></a>
-
+       <form method="GET" name="KenshuListForm" id="KenshuListForm" action="KenshuList">
+       </form>
+       <form method="GET" name="searchForm" id="searchForm" action="List">
 
         <div class="searchTypeLine"></div>
         <div class="searchJoken-box">
-            <form method="GET" name="KenshuListForm" id="KenshuListForm" action="KenshuList">
-            <input type="submit" value="研修リストへ">
-            </form>
+            <input type="button" value="研修リストへ" onClick="document.KenshuListForm.submit()"><br>
 
-            <form method="GET" name="searchForm" id="searchForm" action="List">
-
-            <select name="searchType" id="searchType-name" class="searchType-name">
-                <option value=<%=SearchType.年次.name() %>   <%if(bean.getPrevSearchType()==SearchType.年次){ %> selected <% }%>>年次で検索する</option>
+            <p style="text-align: right">
+           <strong> 年度：</strong> <select name="searchNendo" id="searchNendo-name" class="searchNendo-name" onchange="submit(this.form)">
+                <option value="ALL"   <%=(bean.getPrevSearchNendo().equals("ALL" ))? "selected":"" %>>すべて</option>
+                <option value="2015"  <%=(bean.getPrevSearchNendo().equals("2015" ))? "selected":"" %> >2015</option>
+                <option value="2016"   <%=(bean.getPrevSearchNendo().equals("2016" ))? "selected":"" %>>2016</option>
+                <option value="2017"   <%=(bean.getPrevSearchNendo().equals("2017" ))? "selected":"" %>>2017</option>
+                <option value="2018"   <%=(bean.getPrevSearchNendo().equals("2018" ))? "selected":"" %> >2018</option>
+                <option value="2019"   <%=(bean.getPrevSearchNendo().equals("2019" ))? "selected":"" %>>2019</option>
+            </select>               <select name="kenshuList" id="kenshuList" class="kenshuList">
+                    <option value="234"  > ロジカル・ライティング研修（2018-09-08,0）  </option>
+                </select>
+                    <input type="submit" name="regist_shain_to_kenshu" class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button" value="研修に参加者を登録"  >
+            </p>
+            <hr>
+             <div class="searchJoken-input-box">
+             <select name="searchType" id="searchType-name" class="searchType-name">
+                <option value=<%=SearchType.年次.name() %>  <%if(bean.getPrevSearchType()==SearchType.年次){ %> selected <% }%>>年次で検索する</option>
                 <option value=<%=SearchType.役職.name() %>   <%if(bean.getPrevSearchType()==SearchType.役職){ %> selected <% }%>>役職で検索する</option>
             </select>
-            <hr>
-            <div class="searchJoken-input-box">
+
+
                 <label>検索条件</label>
                 <input
                     type="text" name="searchJoken" class="searchJoken-input-joken"
                     id="searchJoken-input-text" value="<%=(bean.getPrevsearchJoken()==null)?"":bean.getPrevsearchJoken() %>" autofocus>
                 <label>並び順</label>
                 <select name="searchSort" class="searchJoken-input-sort">
-                    <option value= <%=SearchSort.年次.name() %>  <%if(bean.getPrevSearchSort()==SearchSort.年次){ %> selected <% }%>>年次</option>
+                    <option value= <%=SearchSort.みなし年次 %>  <%if(bean.getPrevSearchSort()==SearchSort.みなし年次){ %> selected <% }%>>みなし年次</option>
                     <option value=<%=SearchSort.名前.name() %>   <%if(bean.getPrevSearchSort()==SearchSort.名前){ %> selected <% }%>>名前</option>
+                    <option value= <%=SearchSort.年次.name() %>  <%if(bean.getPrevSearchSort()==SearchSort.年次){ %> selected <% }%>>年次</option>
                 </select>
                 <br>
             </div>
             <div class="searchJoken-button-box">
                 <input type="submit" name="shiborikomi" class="search-button" id="searchButton" value="絞り込み" >
                 <input type="submit" name="kaijo" class="search-button" id="searchButton" value="絞り込み解除" >
-                <input type="button" name="clear" class="search-button" id="searchButton" value="チェックボックスクリア"  onclick="allcheck(false);">
-                <input type="button" name="allcheck" class="search-button" id="searchButton" value="オールチェック"  onclick="allcheck(true);">
+                <input type="button" name="clear" class="search-button" id="searchButton" value="チェックボックスクリア"  onclick="allcheckfalse();">
+                <input type="button" name="allcheck" class="search-button" id="searchButton" value="オールチェック"  onclick="allchecktrue();">
                 <input type="submit" name="csv" class="search-button" id="searchButton" value="CSVダウンロード"  >
             </div>
         </div>
@@ -81,9 +88,10 @@
                     <th class="searchResult-table-busho-header">部署</th>
                     <th class="searchResult-table-yakushoku-header">役職</th>
                     <th class="searchResult-table-detail-header">年次</th>
+                    <th class="searchResult-table-detail-header">中途入社社員みなし年次</th>
                     <th class="searchResult-table-email-header">メールアドレス</th>
                     <th class="searchResult-table-telno-header">電話番号</th>
-                    <th class="searchResult-table-detail-header">中途入社社員みなし年次</th>
+
 
                 </tr>
                 <%int i =1; for(vo.Shainmaster_wo_retire_viewVo line: bean ){ %>
@@ -98,9 +106,9 @@
                         <td><%=line.getDept_name() %></td>
                         <td><%=(line.getPosition()==null)?"":line.getPosition() %></td>
                         <td><%=line.getNenji() %></td>
+                        <td><%=(line.getChuto_ninasinenji()==0)?"": line.getChuto_ninasinenji() %></td>
                         <td><%=line.getEmail() %></td>
                         <td>'<%=line.getTel_no() %></td>
-                        <td><%=(line.getChuto_ninasinenji()==0)?"": line.getChuto_ninasinenji() %></td>
                     </tr>
                 <%} %>
             </table>

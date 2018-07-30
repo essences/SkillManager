@@ -56,10 +56,11 @@ public class ShainDao extends Dao
     //ユーザー検索
     public void getShainList(
             List<Shainmaster_wo_retire_viewVo> list,
-            String[] idList,
-            SearchSort searchSort,
-            SearchType searchType,
-            String searchJoken )
+            String[] 	idList,
+            SearchSort 	searchSort,
+            SearchType 	searchType,
+            String 		searchJoken
+            )
                     throws SQLException
     {
         StringBuilder sql =new StringBuilder( SEARCH_SQL );
@@ -92,6 +93,8 @@ public class ShainDao extends Dao
 
         if( searchSort == SearchSort.年次 )
             sql.append(" ORDER BY `nenji`,`EMPLOYEE_NO` desc ");
+        else if ( searchSort == SearchSort.みなし年次 )
+            sql.append(" ORDER BY `chuto_ninasinenji`,`EMPLOYEE_NO` desc ");
         else
             sql.append(" ORDER BY `EMPLOYEE_FAMILY_NAME_KANA` ");
 

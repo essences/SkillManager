@@ -51,7 +51,7 @@ public class ListServlet extends HttpServlet {
 
          String[] idList =  request.getParameterValues("employee_no");
 
-         SearchSort searchSort = SearchSort.valueOf( (request.getParameter("searchSort")==null)?SearchSort.名前.name():request.getParameter("searchSort") );
+         SearchSort searchSort = SearchSort.valueOf( (request.getParameter("searchSort")==null)?SearchSort.みなし年次.name():request.getParameter("searchSort") );
          SearchType searchType =SearchType.valueOf(  (request.getParameter("searchType")==null)?SearchType.年次.name():request.getParameter("searchType") );
          String searchJoken =request.getParameter("searchJoken");
          String prevSearchJoken =searchJoken;

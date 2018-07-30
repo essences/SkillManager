@@ -32,7 +32,6 @@
     <!-- 会社ロゴ -->
     <a href="/"><img src="./images/common/logo01.gif"></a>
             <form method="GET" name="searchForm1" id="searchForm" action="List">
-
             </form>
            <form method="GET" name="registForm" id="searchForm" action="RegistKenshu">
 
@@ -40,7 +39,8 @@
         <div class="searchJoken-box">
             <input type="button" value="社員リストへ" onClick="document.searchForm1.submit()"><br>
             <strong>研修実績リスト</strong>
-          <strong> 年度：</strong> <select name="searchType" id="searchType-name" class="searchType-name" onchange="submit(this.form)">
+          <strong> 年度：</strong>
+          <select name="searchNendo" id="searchNendo-name" class="searchNendo-name" onchange="submit(this.form)">
                 <option value="ALL"   <%=(bean.getPrevSearchNendo().equals("ALL" ))? "selected":"" %>>すべて</option>
                 <option value="2015"  <%=(bean.getPrevSearchNendo().equals("2015" ))? "selected":"" %> >2015</option>
                 <option value="2016"   <%=(bean.getPrevSearchNendo().equals("2016" ))? "selected":"" %>>2016</option>

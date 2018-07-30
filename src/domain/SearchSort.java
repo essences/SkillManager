@@ -1,5 +1,5 @@
 package domain;
 
 public enum SearchSort {
-    年次,名前
+    みなし年次,名前,年次
 }

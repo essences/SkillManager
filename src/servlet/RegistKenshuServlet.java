@@ -31,7 +31,8 @@ public class RegistKenshuServlet extends HttpServlet {
             throws ServletException, IOException
     {
         request.setCharacterEncoding( "utf-8" );
-        if( request.getParameter("yotei1") != null)
+
+        if( request.getParameter("yotei1") != null && !request.getParameter("yotei1").equals("") )
         {
             KenshuService service = new KenshuService();
             service.registKenshu(
