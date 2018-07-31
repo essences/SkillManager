@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,8 +54,13 @@ public class ListServlet extends HttpServlet {
 
          SearchSort searchSort = SearchSort.valueOf( (request.getParameter("searchSort")==null)?SearchSort.みなし年次.name():request.getParameter("searchSort") );
          SearchType searchType =SearchType.valueOf(  (request.getParameter("searchType")==null)?SearchType.年次.name():request.getParameter("searchType") );
-         String searchJoken =request.getParameter("searchJoken");
+         String searchJoken = (request.getParameter("searchJoken")==null)?"":request.getParameter("searchJoken");
          String prevSearchJoken =searchJoken;
+
+
+         int searchNendo
+             = (request.getParameter("searchNendo")==null)?LocalDate.now().getYear() : Integer.parseInt(request.getParameter("searchNendo"));
+         String presearchNendo = new Integer(searchNendo).toString();
 
          if( searchType== SearchType.年次 && searchJoken!=null && searchJoken.length()!=0 )
          {
@@ -74,28 +80,29 @@ public class ListServlet extends HttpServlet {
          ListBean bean = null;
          if( request.getParameter("shiborikomi")!=null )
          {
-             bean = service.getList(idList,searchSort,searchType,searchJoken);
+             bean = service.getList(idList,searchSort,searchType,searchJoken,searchNendo);
          }
          else if( request.getParameter("kaijo") != null )
          {
 
-             bean = service.getList(null,searchSort,searchType,searchJoken);
+             bean = service.getList(null,searchSort,searchType,searchJoken,searchNendo);
          }
          else if( request.getParameter("csv") != null )
          {
-             bean = service.getList(idList,searchSort,searchType,searchJoken);
+             bean = service.getList(idList,searchSort,searchType,searchJoken,searchNendo);
              //文字コードと出力するCSVファイル名を設定
              response.setContentType("application/octet-stream;charset=utf-8");
              response.setHeader("Content-Disposition", "attachment; filename=\"shain_list.csv\"");
 
              try (PrintWriter pw = response.getWriter())
              {
-                 bean = service.getList(null,searchSort,searchType,searchJoken);
+                 bean = service.getList(null,searchSort,searchType,searchJoken,searchNendo);
                  pw.print( bean.getCSV() );
              }
              return;
-          } else
-          {
+         }
+         else
+         {
               String LoginName = (request.getParameter("loginname")==null)?"共創いえい":request.getParameter("loginname");
               if(!LoginName.equals("共創いえい"))
               {
@@ -105,8 +112,8 @@ public class ListServlet extends HttpServlet {
               }
 
               request.getSession().setAttribute("LoginName", LoginName);
-              bean = new ListBean();
-          }
+              bean = service.getList(null,searchSort,searchType,searchJoken,searchNendo);
+         }
 
 
         if( idList != null )
@@ -119,6 +126,7 @@ public class ListServlet extends HttpServlet {
          bean.setPrevSearchSort(searchSort);
          bean.setPrevSearchType(searchType);
          bean.setPrevsearchJoken(prevSearchJoken);
+         bean.setPrevSearchNendo(presearchNendo);
 
          request.setAttribute( "bean", bean );
          RequestDispatcher disp = request.getRequestDispatcher( "/shainlist.jsp" );

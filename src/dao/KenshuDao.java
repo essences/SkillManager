@@ -42,9 +42,9 @@ public class KenshuDao extends Dao
 
             //" ORDER BY `YOTEIDATE`";
 
-    public List<Kenshujisseki_viewVo> getKenshuJissekiList(int nendo ) throws SQLException
+    public void getKenshuJissekiList(int nendo ,List<Kenshujisseki_viewVo> list )
+            throws SQLException
     {
-        List<Kenshujisseki_viewVo> list;
 
         StringBuffer sb = new StringBuffer(KENSHU_JISSEKI_LIST_SQL);
 
@@ -60,12 +60,6 @@ public class KenshuDao extends Dao
 
         try ( PreparedStatement stmt = con.prepareStatement( sb.toString() );)
         {
-
-
-
-
-            list = new ArrayList<Kenshujisseki_viewVo> ();
-
             ResultSet rset = stmt.executeQuery();
 
             while (rset.next())
@@ -94,6 +88,15 @@ public class KenshuDao extends Dao
                 list.add(vo);
             }
         }
+
+
+    }
+
+    public List<Kenshujisseki_viewVo> getKenshuJissekiList(int nendo ) throws SQLException
+    {
+        List<Kenshujisseki_viewVo> list;
+        list = new ArrayList<Kenshujisseki_viewVo> ();
+        getKenshuJissekiList( nendo,  list);
 
         return list;
     }

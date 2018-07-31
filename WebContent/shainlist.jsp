@@ -33,14 +33,18 @@
             <p style="text-align: right">
            <strong> 年度：</strong> <select name="searchNendo" id="searchNendo-name" class="searchNendo-name" onchange="submit(this.form)">
                 <option value="ALL"   <%=(bean.getPrevSearchNendo().equals("ALL" ))? "selected":"" %>>すべて</option>
-                <option value="2015"  <%=(bean.getPrevSearchNendo().equals("2015" ))? "selected":"" %> >2015</option>
-                <option value="2016"   <%=(bean.getPrevSearchNendo().equals("2016" ))? "selected":"" %>>2016</option>
-                <option value="2017"   <%=(bean.getPrevSearchNendo().equals("2017" ))? "selected":"" %>>2017</option>
-                <option value="2018"   <%=(bean.getPrevSearchNendo().equals("2018" ))? "selected":"" %> >2018</option>
-                <option value="2019"   <%=(bean.getPrevSearchNendo().equals("2019" ))? "selected":"" %>>2019</option>
-            </select>               <select name="kenshuList" id="kenshuList" class="kenshuList">
-                    <option value="234"  > ロジカル・ライティング研修（2018-09-08,0）  </option>
-                </select>
+                <option value="2015"  <%=(bean.getPrevSearchNendo().equals("2015" ))? "selected":"" %>>2015</option>
+                <option value="2016"  <%=(bean.getPrevSearchNendo().equals("2016" ))? "selected":"" %>>2016</option>
+                <option value="2017"  <%=(bean.getPrevSearchNendo().equals("2017" ))? "selected":"" %>>2017</option>
+                <option value="2018"  <%=(bean.getPrevSearchNendo().equals("2018" ))? "selected":"" %>>2018</option>
+                <option value="2019"  <%=(bean.getPrevSearchNendo().equals("2019" ))? "selected":"" %>>2019</option>
+                <option value="2020"  <%=(bean.getPrevSearchNendo().equals("2020" ))? "selected":"" %>>2020</option>
+            </select>
+            <select name="kenshuList" id="kenshuList" class="kenshuList">
+            <% for( vo.Kenshujisseki_viewVo vo: bean.getKenshuList() ){ %>
+                    <option value="<%=vo.getKenshujisseki() %>"  > <%=vo.getTitle() %>（<%=vo.getYoteidate() %>）  </option>
+            <%} %>
+            </select>
                     <input type="submit" name="regist_shain_to_kenshu" class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button" value="研修に参加者を登録"  >
             </p>
             <hr>
@@ -75,13 +79,16 @@
 
         <div class="searchResult-box">
             <div class="searchResult-count-box">
-                検索結果<label id="searchResult-count"><%=bean.size() %></label>件です
+                検索結果<label id="searchResult-count"><%=bean.getList().size() %></label>件です
             </div>
             <table class="searchResult-table">
                 <tr>
                     <th class="searchResult-table-no-header">No.</th>
                     <th class="searchResult-table-detail-header">チェック</th>
-                    <th class="searchResult-table-detail-header">詳細</th>
+                    <th class="searchResult-table-detail-header">参加研修リスト</th>
+                    <th class="searchResult-table-detail-header">事前出席確認</th>
+                    <th class="searchResult-table-detail-header">当日出席</th>
+                    <th class="searchResult-table-detail-header">欠席事由、備考</th>
                     <th class="searchResult-table-no-header">社員ID</th>
                     <th class="searchResult-table-name-header">名前</th>
                     <th class="searchResult-table-name-header">ふりがな</th>
@@ -94,12 +101,15 @@
 
 
                 </tr>
-                <%int i =1; for(vo.Shainmaster_wo_retire_viewVo line: bean ){ %>
+                <%int i =1; for(vo.Shainmaster_wo_retire_viewVo line: bean.getList() ){ %>
                     <tr class="">
                         <td><%=i++ %></td>
                         <td><input type="checkbox" name="employee_no" value="<%=line.getEmployee_no() %>" <%if( bean.get(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
                         <td class="searchResult-table-detail-body">
                             <input type="button" class="detail-button" data-key="<%=line.getEmployee_no() %>"></td>
+                        <td><input type="checkbox" name="jizen_shusseki" value="<%=line.getEmployee_no() %>" <%if( bean.getJizenShussseki(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
+                        <td><input type="checkbox" name="toujitu_shusseki" value="<%=line.getEmployee_no() %>" <%if( bean.getToujitsuShussseki(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
+                        <td><input type="text" name="kesseki_jiyu" value=""  ></td>
                         <td><%=line.getEmployee_no() %></td>
                         <td><%=line.getEmployee_family_name() %> <%=line.getEmployee_first_name() %> </td>
                         <td><%=line.getEmployee_family_name_kana() %> <%=line.getEmployee_first_name_kana() %> </td>

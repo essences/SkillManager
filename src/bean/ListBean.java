@@ -1,22 +1,54 @@
 package bean;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import domain.SearchSort;
 import domain.SearchType;
+import vo.Kenshujisseki_viewVo;
 import vo.Shainmaster_wo_retire_viewVo;
 
-public class ListBean implements List<Shainmaster_wo_retire_viewVo>
+public class ListBean
 {
     private List<Shainmaster_wo_retire_viewVo> list = new ArrayList<Shainmaster_wo_retire_viewVo>();
+    private List<Kenshujisseki_viewVo> kenshuList = new ArrayList<Kenshujisseki_viewVo>();
+
+
+    public List<Kenshujisseki_viewVo> getKenshuList() {
+        return kenshuList;
+    }
 
     Map<String,String> checkEmpNoMap = new HashMap<String,String>();
+    public String get(Object key) {
+        return checkEmpNoMap.get(key);
+    }
+
+    public String put(String key, String value) {
+        return checkEmpNoMap.put(key, value);
+    }
+
+
+    Map<String,String> checkJizenShussekiEmpNoMap = new HashMap<String,String>();
+    public String getJizenShussseki(Object key) {
+        return checkJizenShussekiEmpNoMap.get(key);
+    }
+
+    public String putJizenShussseki(String key, String value) {
+        return checkJizenShussekiEmpNoMap.put(key, value);
+    }
+
+
+    Map<String,String> checkToujitsuShussekiEmpNoMap = new HashMap<String,String>();
+    public String getToujitsuShussseki(Object key) {
+        return checkToujitsuShussekiEmpNoMap.get(key);
+    }
+
+    public String putToujitsuShussseki(String key, String value) {
+        return checkToujitsuShussekiEmpNoMap.put(key, value);
+    }
+
 
     private SearchSort prevSearchSort;
 
@@ -25,13 +57,16 @@ public class ListBean implements List<Shainmaster_wo_retire_viewVo>
     private String prevsearchJoken;
 
 
-    private String nendo="2018";
+    private String nendo;//=Integer.toString(LocalDate.now().getYear());
     public String getPrevSearchNendo()
     {
         return nendo;
     }
 
-
+    public void setPrevSearchNendo(String nend1)
+    {
+        this.nendo = nend1;
+    }
     public SearchSort getPrevSearchSort() {
         return prevSearchSort;
     }
@@ -56,112 +91,11 @@ public class ListBean implements List<Shainmaster_wo_retire_viewVo>
         this.prevsearchJoken = prevsearchJoken;
     }
 
-    public String get(Object key) {
-        return checkEmpNoMap.get(key);
-    }
 
-    public String put(String key, String value) {
-        return checkEmpNoMap.put(key, value);
-    }
 
-    public int size() {
-        return list.size();
-    }
 
-    public boolean isEmpty() {
-        return list.isEmpty();
-    }
-
-    public boolean contains(Object o) {
-        return list.contains(o);
-    }
-
-    public Iterator<Shainmaster_wo_retire_viewVo> iterator() {
-        return list.iterator();
-    }
-
-    public Object[] toArray() {
-        return list.toArray();
-    }
-
-    public <T> T[] toArray(T[] a) {
-        return list.toArray(a);
-    }
-
-    public boolean add(Shainmaster_wo_retire_viewVo e) {
-        return list.add(e);
-    }
-
-    public boolean remove(Object o) {
-        return list.remove(o);
-    }
-
-    public boolean containsAll(Collection<?> c) {
-        return list.containsAll(c);
-    }
-
-    public boolean addAll(Collection<? extends Shainmaster_wo_retire_viewVo> c) {
-        return list.addAll(c);
-    }
-
-    public boolean addAll(int index, Collection<? extends Shainmaster_wo_retire_viewVo> c) {
-        return list.addAll(index, c);
-    }
-
-    public boolean removeAll(Collection<?> c) {
-        return list.removeAll(c);
-    }
-
-    public boolean retainAll(Collection<?> c) {
-        return list.retainAll(c);
-    }
-
-    public void clear() {
-        list.clear();
-    }
-
-    public boolean equals(Object o) {
-        return list.equals(o);
-    }
-
-    public int hashCode() {
-        return list.hashCode();
-    }
-
-    public Shainmaster_wo_retire_viewVo get(int index) {
-        return list.get(index);
-    }
-
-    public Shainmaster_wo_retire_viewVo set(int index, Shainmaster_wo_retire_viewVo element) {
-        return list.set(index, element);
-    }
-
-    public void add(int index, Shainmaster_wo_retire_viewVo element) {
-        list.add(index, element);
-    }
-
-    public Shainmaster_wo_retire_viewVo remove(int index) {
-        return list.remove(index);
-    }
-
-    public int indexOf(Object o) {
-        return list.indexOf(o);
-    }
-
-    public int lastIndexOf(Object o) {
-        return list.lastIndexOf(o);
-    }
-
-    public ListIterator<Shainmaster_wo_retire_viewVo> listIterator() {
-        return list.listIterator();
-    }
-
-    public ListIterator<Shainmaster_wo_retire_viewVo> listIterator(int index) {
-        return list.listIterator(index);
-    }
-
-    public List<Shainmaster_wo_retire_viewVo> subList(int fromIndex, int toIndex) {
-        return list.subList(fromIndex, toIndex);
+    public List<Shainmaster_wo_retire_viewVo> getList() {
+        return list;
     }
 
     public String getCSV()

@@ -81,7 +81,7 @@ public class ShainDao extends Dao
         {
             if( idList != null )
                 sql.append(" OR ");
-            sql.append("nenji=" + searchJoken );
+            sql.append("chuto_ninasinenji=" + searchJoken );
         }
         else if( searchJoken.length() !=0 && searchType == SearchType.役職 )
         {
