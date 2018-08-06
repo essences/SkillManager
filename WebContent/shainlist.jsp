@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body onload="init();">
     <!-- 会社ロゴ -->
     <a href="/"><img src="./images/common/logo01.gif"></a>
        <form method="GET" name="KenshuListForm" id="KenshuListForm" action="KenshuList">
@@ -31,6 +31,7 @@
             <input type="button" value="研修リストへ" onClick="document.KenshuListForm.submit()"><br>
 
             <p style="text-align: right">
+            <strong> 入力欄表示 ：</strong><input name="check_type" type="checkbox" onclick="changeCell('noneLine');">
            <strong> 年度：</strong> <select name="searchNendo" id="searchNendo-name" class="searchNendo-name" onchange="submit(this.form)">
                 <option value="ALL"   <%=(bean.getPrevSearchNendo().equals("ALL" ))? "selected":"" %>>すべて</option>
                 <option value="2015"  <%=(bean.getPrevSearchNendo().equals("2015" ))? "selected":"" %>>2015</option>
@@ -86,9 +87,9 @@
                     <th class="searchResult-table-no-header">No.</th>
                     <th class="searchResult-table-detail-header">チェック</th>
                     <th class="searchResult-table-detail-header">参加研修リスト</th>
-                    <th class="searchResult-table-detail-header">事前出席確認</th>
-                    <th class="searchResult-table-detail-header">当日出席</th>
-                    <th class="searchResult-table-detail-header">欠席事由、備考</th>
+                    <th class="noneLine">事前出席確認</th>
+                    <th class="noneLine">当日出席</th>
+                    <th class="noneLine">欠席事由、備考</th>
                     <th class="searchResult-table-no-header">社員ID</th>
                     <th class="searchResult-table-name-header">名前</th>
                     <th class="searchResult-table-name-header">ふりがな</th>
@@ -96,8 +97,8 @@
                     <th class="searchResult-table-yakushoku-header">役職</th>
                     <th class="searchResult-table-detail-header">年次</th>
                     <th class="searchResult-table-detail-header">中途入社社員みなし年次</th>
-                    <th class="searchResult-table-email-header">メールアドレス</th>
-                    <th class="searchResult-table-telno-header">電話番号</th>
+                    <th class="altnoneLine">メールアドレス</th>
+                    <th class="altnoneLine">電話番号</th>
 
 
                 </tr>
@@ -107,9 +108,9 @@
                         <td><input type="checkbox" name="employee_no" value="<%=line.getEmployee_no() %>" <%if( bean.get(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
                         <td class="searchResult-table-detail-body">
                             <input type="button" class="detail-button" data-key="<%=line.getEmployee_no() %>"></td>
-                        <td><input type="checkbox" name="jizen_shusseki" value="<%=line.getEmployee_no() %>" <%if( bean.getJizenShussseki(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
-                        <td><input type="checkbox" name="toujitu_shusseki" value="<%=line.getEmployee_no() %>" <%if( bean.getToujitsuShussseki(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
-                        <td><input type="text" name="kesseki_jiyu" value=""  ></td>
+                        <td class="noneLine"><input type="checkbox" name="jizen_shusseki" value="<%=line.getEmployee_no() %>" <%if( bean.getJizenShussseki(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
+                        <td class="noneLine"><input type="checkbox" name="toujitu_shusseki" value="<%=line.getEmployee_no() %>" <%if( bean.getToujitsuShussseki(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
+                        <td class="noneLine"><input type="text" name="kesseki_jiyu" value=""  ></td>
                         <td><%=line.getEmployee_no() %></td>
                         <td><%=line.getEmployee_family_name() %> <%=line.getEmployee_first_name() %> </td>
                         <td><%=line.getEmployee_family_name_kana() %> <%=line.getEmployee_first_name_kana() %> </td>
@@ -117,12 +118,14 @@
                         <td><%=(line.getPosition()==null)?"":line.getPosition() %></td>
                         <td><%=line.getNenji() %></td>
                         <td><%=(line.getChuto_ninasinenji()==0)?"": line.getChuto_ninasinenji() %></td>
-                        <td><%=line.getEmail() %></td>
-                        <td>'<%=line.getTel_no() %></td>
+                        <td class="altnoneLine"><%=line.getEmail() %></td>
+                        <td class="altnoneLine">'<%=line.getTel_no() %></td>
                     </tr>
                 <%} %>
             </table>
         </div>
     </form>
+
 </body>
+
 </html>

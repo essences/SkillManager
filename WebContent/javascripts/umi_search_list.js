@@ -38,3 +38,70 @@ function allcheck(tf)
           document.searchForm.elements[i].checked = tf;
       }
   }
+
+
+function changeCell(){
+    if(document.searchForm.check_type.checked != true){
+        var e=document.getElementsByTagName('*');
+        for (var i = 0; i < e.length; i++){
+            if(e[i].className == 'noneLine'){
+                e[i].style.display = 'none';
+            }
+        }
+    }else{
+        var e=document.getElementsByTagName('*');
+        for (var i = 0; i < e.length; i++){
+            if(e[i].className == 'noneLine'){
+                e[i].style.display = '';
+            }
+        }
+    }
+}
+
+
+function changeCell(className){
+    if(document.searchForm.check_type.checked != true){
+        var e = getElementsByClass(className);
+        for (var i = 0; i < e.length; i++){
+            e[i].style.display = 'none';
+        }
+    }else{
+        var e = getElementsByClass(className);
+        for (var i = 0; i < e.length; i++){
+            e[i].style.display = '';
+        }
+    }
+    if(document.searchForm.check_type.checked == true){
+        var e = getElementsByClass("alt"+ className);
+        for (var i = 0; i < e.length; i++){
+            e[i].style.display = 'none';
+        }
+    }else{
+        var e = getElementsByClass("alt"+ className);
+        for (var i = 0; i < e.length; i++){
+            e[i].style.display = '';
+        }
+    }
+}
+
+// 参照 http://blog.livedoor.jp/nipotan/archives/15424695.html
+function getElementsByClass(searchClass) {
+    var classElements = new Array();
+    var allElements = document.getElementsByTagName("*");
+    for (i = 0, j = 0; i < allElements.length; i++) {
+        if (allElements[i].className == searchClass) {
+            classElements[j] = allElements[i];
+            j++;
+        }
+    }
+    return classElements;
+}
+
+function init()
+{
+    var e = getElementsByClass('noneLine');
+    for (var i = 0; i < e.length; i++){
+        e[i].style.display = 'none';
+    }
+}
+
