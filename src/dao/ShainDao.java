@@ -48,8 +48,10 @@ public class ShainDao extends Dao
             "    `shainmaster_wo_retire_view`.`WORKING_TEL_NO`,\r\n" +
             "    `shainmaster_wo_retire_view`.`POSITION`,\r\n" +
             "    `shainmaster_wo_retire_view`.`UPGRADE_DATE`,\r\n" +
-            "    `shainmaster_wo_retire_view`.`chuto_ninasinenji`\r\n" +
-            "FROM `kyoso`.`shainmaster_wo_retire_view` \r\n";
+            "    `shainmaster_wo_retire_view`.`chuto_ninasinenji`,\r\n" +
+            "    `shainmaster_wo_retire_view`.`biko`\r\n" +
+            "FROM `kyoso`.`shainmaster_wo_retire_view`\r\n" +
+            "";
 
 
 
@@ -112,14 +114,15 @@ public class ShainDao extends Dao
                 vo.setEmployee_no(				rset.getString(	"EMPLOYEE_NO")			);
                 vo.setEmployee_family_name( 	rset.getString(	"EMPLOYEE_FAMILY_NAME") );
                 vo.setEmployee_first_name( 		rset.getString(	"EMPLOYEE_FIRST_NAME") 	);
-                vo.setEmployee_family_name_kana( 	rset.getString(	"EMPLOYEE_FAMILY_NAME_KANA") );
-                vo.setEmployee_first_name_kana( 		rset.getString(	"EMPLOYEE_FIRST_NAME_KANA") 	);
+                vo.setEmployee_family_name_kana(rset.getString(	"EMPLOYEE_FAMILY_NAME_KANA") );
+                vo.setEmployee_first_name_kana( rset.getString(	"EMPLOYEE_FIRST_NAME_KANA")  );
                 vo.setNenji(					rset.getLong(	"nenji")				);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
                 vo.setPosition(					rset.getString("POSITION")				);
                 vo.setEmail(					rset.getString("EMAIL")					);
                 vo.setTel_no(					rset.getString("CELL_TEL_NO")			);
                 vo.setChuto_ninasinenji(		rset.getInt("chuto_ninasinenji")		);
+                vo.setBiko(						rset.getString("biko")					);
 
                 list.add(vo);
             }

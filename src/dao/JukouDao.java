@@ -43,7 +43,11 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`genba_joucho_emp_no`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FAMILY_NAME_J`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME_J`,\r\n" +
-            "    `kenshu_jukou_view`.`EMAIL_J`\r\n" +
+            "    `kenshu_jukou_view`.`EMAIL_J`,\r\n" +
+            "    `kenshu_jukou_view`.`biko`,\r\n"+
+            "    `kenshujukou`.`IS_KAKUNIN1`,\r\n" +
+            "    `kenshujukou`.`IS_KAKUNIN2`,\r\n" +
+            "    `kenshujukou`.`IS_KAKUNIN3` \r\n" +
             " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `EMPLOYEE_NO`=?"+
             " ORDER BY `KAISAIDATE` ";
@@ -79,7 +83,8 @@ public class JukouDao extends Dao
                 vo.setToujitu_nenji(			rset.getLong(	"toujitu_nenji")		);
                 vo.setNenji(					rset.getLong(	"nenji")				);
                 vo.setChuto_ninasinenji(		rset.getInt(	"chuto_ninasinenji")	);
-                vo.setKenshujissekiid(			rset.getInt(	"KENSHUJISSEKIID"));
+                vo.setKenshujissekiid(			rset.getInt(	"KENSHUJISSEKIID")		);
+                vo.setBiko(						rset.getString(	"BIKO")					);
 
 
                 list.add(vo);

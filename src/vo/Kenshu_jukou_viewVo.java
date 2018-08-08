@@ -2,7 +2,7 @@ package vo;
 
 /* Code Generator Information.
  * generator Version 1.0.0 release 2007/10/10
- * generated Date Tue Jul 17 13:41:48 JST 2018
+ * generated Date Wed Aug 08 16:54:42 JST 2018
  */
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @version 1.0
  * history
  * Symbol	Date		Person		Note
- * [1]		2018/07/17	e.hayashi		Generated.
+ * [1]		2018/08/08	e.hayashi		Generated.
  */
 public class Kenshu_jukou_viewVo implements Serializable{
 
@@ -119,9 +119,9 @@ public class Kenshu_jukou_viewVo implements Serializable{
     private long nenji;
 
     /**
-     * みなし年次:int(10)
+     * chuto_ninasinenji:bigint(19)
      */
-    private int chuto_ninasinenji;
+    private long chuto_ninasinenji;
 
     /**
      * genba_joucho_emp_no:varchar(5)
@@ -142,6 +142,26 @@ public class Kenshu_jukou_viewVo implements Serializable{
      * メールアドレス:varchar(256)
      */
     private String email_j;
+
+    /**
+     * biko:varchar(1024)
+     */
+    private String biko;
+
+    /**
+     * IS_KAKUNIN1:int(10)
+     */
+    private int is_kakunin1;
+
+    /**
+     * IS_KAKUNIN2:int(10)
+     */
+    private int is_kakunin2;
+
+    /**
+     * IS_KAKUNIN3:int(10)
+     */
+    private int is_kakunin3;
 
     /**
     * Constractor
@@ -228,9 +248,9 @@ public class Kenshu_jukou_viewVo implements Serializable{
 
     public void setNenji(long nenji){ this.nenji = nenji; }
 
-    public int getChuto_ninasinenji(){ return this.chuto_ninasinenji; }
+    public long getChuto_ninasinenji(){ return this.chuto_ninasinenji; }
 
-    public void setChuto_ninasinenji(int chuto_ninasinenji){ this.chuto_ninasinenji = chuto_ninasinenji; }
+    public void setChuto_ninasinenji(long chuto_ninasinenji){ this.chuto_ninasinenji = chuto_ninasinenji; }
 
     public String getGenba_joucho_emp_no(){ return this.genba_joucho_emp_no; }
 
@@ -247,6 +267,22 @@ public class Kenshu_jukou_viewVo implements Serializable{
     public String getEmail_j(){ return this.email_j; }
 
     public void setEmail_j(String email_j){ this.email_j = email_j; }
+
+    public String getBiko(){ return this.biko; }
+
+    public void setBiko(String biko){ this.biko = biko; }
+
+    public int getIs_kakunin1(){ return this.is_kakunin1; }
+
+    public void setIs_kakunin1(int is_kakunin1){ this.is_kakunin1 = is_kakunin1; }
+
+    public int getIs_kakunin2(){ return this.is_kakunin2; }
+
+    public void setIs_kakunin2(int is_kakunin2){ this.is_kakunin2 = is_kakunin2; }
+
+    public int getIs_kakunin3(){ return this.is_kakunin3; }
+
+    public void setIs_kakunin3(int is_kakunin3){ this.is_kakunin3 = is_kakunin3; }
 
     public String toString(){
         StringBuffer buffer = new StringBuffer();
@@ -301,6 +337,14 @@ public class Kenshu_jukou_viewVo implements Serializable{
         buffer.append(employee_first_name_j);
         buffer.append(" email_j: ");
         buffer.append(email_j);
+        buffer.append(" biko: ");
+        buffer.append(biko);
+        buffer.append(" is_kakunin1: ");
+        buffer.append(is_kakunin1);
+        buffer.append(" is_kakunin2: ");
+        buffer.append(is_kakunin2);
+        buffer.append(" is_kakunin3: ");
+        buffer.append(is_kakunin3);
         buffer.append("]");
         return buffer.toString();
     }

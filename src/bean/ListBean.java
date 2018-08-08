@@ -30,23 +30,56 @@ public class ListBean
     }
 
 
-    Map<String,String> checkJizenShussekiEmpNoMap = new HashMap<String,String>();
-    public String getJizenShussseki(Object key) {
-        return checkJizenShussekiEmpNoMap.get(key);
+    Map<String,String> checkJizenShusseki1EmpNoMap = new HashMap<String,String>();
+    Map<String,String> checkJizenShusseki2EmpNoMap = new HashMap<String,String>();
+    Map<String,String> checkJizenShusseki3EmpNoMap = new HashMap<String,String>();
+
+    Map<String,String> checkToujitsuShusseki1EmpNoMap = new HashMap<String,String>();
+    Map<String,String> checkToujitsuShusseki2EmpNoMap = new HashMap<String,String>();
+    Map<String,String> checkToujitsuShusseki3EmpNoMap = new HashMap<String,String>();
+
+    public String getJizenShusseki1(String key) {
+        return checkJizenShusseki1EmpNoMap.get(key);
     }
 
-    public String putJizenShussseki(String key, String value) {
-        return checkJizenShussekiEmpNoMap.put(key, value);
+    public String putJizenShusseki1(String key, String value) {
+        return checkJizenShusseki1EmpNoMap.put(key, value);
+    }
+    public String getJizenShusseki2(String key) {
+        return checkJizenShusseki2EmpNoMap.get(key);
     }
 
-
-    Map<String,String> checkToujitsuShussekiEmpNoMap = new HashMap<String,String>();
-    public String getToujitsuShussseki(Object key) {
-        return checkToujitsuShussekiEmpNoMap.get(key);
+    public String putJizenShusseki2(String key, String value) {
+        return checkJizenShusseki2EmpNoMap.put(key, value);
+    }
+    public String getJizenShusseki3(String key) {
+        return checkJizenShusseki3EmpNoMap.get(key);
     }
 
-    public String putToujitsuShussseki(String key, String value) {
-        return checkToujitsuShussekiEmpNoMap.put(key, value);
+    public String putJizenShusseki3(String key, String value) {
+        return checkJizenShusseki3EmpNoMap.put(key, value);
+    }
+
+    public String getToujitsuShusseki1(String key) {
+        return checkToujitsuShusseki1EmpNoMap.get(key);
+    }
+
+    public String putToujitsuShusseki1(String key, String value) {
+        return checkToujitsuShusseki1EmpNoMap.put(key, value);
+    }
+    public String getToujitsuShusseki2(String key) {
+        return checkToujitsuShusseki2EmpNoMap.get(key);
+    }
+
+    public String putToujitsuShusseki2(String key, String value) {
+        return checkToujitsuShusseki2EmpNoMap.put(key, value);
+    }
+    public String getToujitsuShusseki3(String key) {
+        return checkToujitsuShusseki3EmpNoMap.get(key);
+    }
+
+    public String putToujitsuShusseki3(String key, String value) {
+        return checkToujitsuShusseki3EmpNoMap.put(key, value);
     }
 
 
