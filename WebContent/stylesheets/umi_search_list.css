@@ -129,3 +129,13 @@
     vertical-align: middle;
     height: 18px;
 }
+.altnoneLine
+{
+    min-width: 50px;
+    width: 120px;
+}
+.noneLine
+{
+    min-width: 50px;
+    width: 120px;
+}

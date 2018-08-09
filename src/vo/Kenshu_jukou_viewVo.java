@@ -2,7 +2,7 @@ package vo;
 
 /* Code Generator Information.
  * generator Version 1.0.0 release 2007/10/10
- * generated Date Wed Aug 08 16:54:42 JST 2018
+ * generated Date Thu Aug 09 13:22:33 JST 2018
  */
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @version 1.0
  * history
  * Symbol	Date		Person		Note
- * [1]		2018/08/08	e.hayashi		Generated.
+ * [1]		2018/08/09	e.hayashi		Generated.
  */
 public class Kenshu_jukou_viewVo implements Serializable{
 
@@ -164,6 +164,11 @@ public class Kenshu_jukou_viewVo implements Serializable{
     private int is_kakunin3;
 
     /**
+     * 部署名:varchar(60)
+     */
+    private String dept_name;
+
+    /**
     * Constractor
     */
     public Kenshu_jukou_viewVo(){}
@@ -284,6 +289,10 @@ public class Kenshu_jukou_viewVo implements Serializable{
 
     public void setIs_kakunin3(int is_kakunin3){ this.is_kakunin3 = is_kakunin3; }
 
+    public String getDept_name(){ return this.dept_name; }
+
+    public void setDept_name(String dept_name){ this.dept_name = dept_name; }
+
     public String toString(){
         StringBuffer buffer = new StringBuffer();
         buffer.append("[Kenshu_jukou_viewVo:");
@@ -345,6 +354,8 @@ public class Kenshu_jukou_viewVo implements Serializable{
         buffer.append(is_kakunin2);
         buffer.append(" is_kakunin3: ");
         buffer.append(is_kakunin3);
+        buffer.append(" dept_name: ");
+        buffer.append(dept_name);
         buffer.append("]");
         return buffer.toString();
     }

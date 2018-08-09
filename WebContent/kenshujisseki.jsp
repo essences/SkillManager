@@ -31,9 +31,9 @@
 <body>
     <!-- 会社ロゴ -->
     <a href="/"><img src="./images/common/logo01.gif"></a>
-            <form method="GET" name="searchForm1" id="searchForm" action="List">
+            <form method="POST" name="searchForm1" id="searchForm" action="List">
             </form>
-           <form method="GET" name="registForm" id="searchForm" action="RegistKenshu">
+           <form method="POST" name="registForm" id="searchForm" action="RegistKenshu">
 
         <div class="searchTypeLine"></div>
         <div class="searchJoken-box">

@@ -8,12 +8,15 @@ $(function() {
         window.open('Jukou?shainNo='+this.dataset.key, 'detailWindow'+this.dataset.key, 'width=800, height=700, scrollbars=yes');
     });
 
+
+    $('.sankashalist-button').click(function(){
+        // 詳細画面を立ち上げる
+        window.open('Sankasha?KENSHUJISSEKIID='+this.dataset.key, 'detailWindow'+this.dataset.key, 'width=1000, height=700, scrollbars=yes');
+    });
+
 });
 
-function test()
-{
-  alert('testアラート');
-}
+
 function allchecktrue()
 {
     var elementsCount = document.searchForm.elements.length;

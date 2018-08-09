@@ -45,9 +45,10 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME_J`,\r\n" +
             "    `kenshu_jukou_view`.`EMAIL_J`,\r\n" +
             "    `kenshu_jukou_view`.`biko`,\r\n"+
-            "    `kenshujukou`.`IS_KAKUNIN1`,\r\n" +
-            "    `kenshujukou`.`IS_KAKUNIN2`,\r\n" +
-            "    `kenshujukou`.`IS_KAKUNIN3` \r\n" +
+            "    `kenshu_jukou_view`.`IS_KAKUNIN1`,\r\n" +
+            "    `kenshu_jukou_view`.`IS_KAKUNIN2`,\r\n" +
+            "    `kenshu_jukou_view`.`IS_KAKUNIN3`, \r\n" +
+            "    `kenshu_jukou_view`.`DEPT_NAME` \r\n" +
             " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `EMPLOYEE_NO`=?"+
             " ORDER BY `KAISAIDATE` ";
@@ -85,7 +86,7 @@ public class JukouDao extends Dao
                 vo.setChuto_ninasinenji(		rset.getInt(	"chuto_ninasinenji")	);
                 vo.setKenshujissekiid(			rset.getInt(	"KENSHUJISSEKIID")		);
                 vo.setBiko(						rset.getString(	"BIKO")					);
-
+                vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
 
                 list.add(vo);
             }
@@ -118,8 +119,12 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`genba_joucho_emp_no`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FAMILY_NAME_J`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME_J`,\r\n" +
-            "    `kenshu_jukou_view`.`EMAIL_J`\r\n" +
-            " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
+            "    `kenshu_jukou_view`.`EMAIL_J`,\r\n" +
+            "    `kenshu_jukou_view`.`biko`,\r\n"+
+            "    `kenshu_jukou_view`.`IS_KAKUNIN1`,\r\n" +
+            "    `kenshu_jukou_view`.`IS_KAKUNIN2`,\r\n" +
+            "    `kenshu_jukou_view`.`IS_KAKUNIN3`, \r\n" +
+            "    `kenshu_jukou_view`.`DEPT_NAME` \r\n" +            " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `KENSHUJISSEKIID`=?"+
             " ORDER BY `EMPLOYEE_NO` ";
 
@@ -160,6 +165,8 @@ public class JukouDao extends Dao
                 vo.setEmployee_family_name_j(	rset.getString("EMPLOYEE_FAMILY_NAME_J"));
                 vo.setEmployee_first_name_j(	rset.getString("EMPLOYEE_FIRST_NAME_J")	);
                 vo.setEmail_j(					rset.getString("EMAIL_J")				);
+                vo.setBiko(						rset.getString(	"BIKO")					);
+                vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
 
 
                 list.add(vo);

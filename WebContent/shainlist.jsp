@@ -42,11 +42,12 @@
                 <option value="2019"  <%=(bean.getPrevSearchNendo().equals("2019" ))? "selected":"" %>>2019</option>
                 <option value="2020"  <%=(bean.getPrevSearchNendo().equals("2020" ))? "selected":"" %>>2020</option>
             </select>
-            <select name="kenshuList" id="kenshuList" class="kenshuList">
-            <% for( vo.Kenshujisseki_viewVo vo: bean.getKenshuList() ){ %>
-                    <option value="<%=vo.getKenshujisseki() %>"  > <%=vo.getTitle() %>（<%=vo.getYoteidate() %>,<%=vo.getNumdays() %>日間）  </option>
-            <%} %>
+            <select name="kenshuList" id="kenshuList" class="kenshuList" onChange="">
+                <% for( vo.Kenshujisseki_viewVo vo: bean.getKenshuList() ){ %>
+                        <option value="<%=vo.getKenshujisseki() %>"  > <%=vo.getTitle() %>（<%=vo.getYoteidate() %>,<%=vo.getNumdays() %>日間）  </option>
+                <%} %>
             </select>
+                     <input type="button" class="sankashalist-button" data-key="" value="参加者リストを表示"  >
                     <input type="submit" name="regist_shain_to_kenshu" class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button" value="研修に参加者を登録"  >
             </p>
             <hr>

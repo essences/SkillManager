@@ -56,7 +56,7 @@ public class KenshuService
                 bean.setEmployee_family_name( 	bean.get(0).getEmployee_family_name());
                 bean.setEmployee_first_name( 	bean.get(0).getEmployee_first_name());
                 bean.setNenji(					bean.get(0).getNenji());
-                bean.setChuto_ninasinenji(		bean.get(0).getChuto_ninasinenji());
+                bean.setChuto_ninasinenji(		(int)bean.get(0).getChuto_ninasinenji());
             }
         }
         catch( SQLException e )

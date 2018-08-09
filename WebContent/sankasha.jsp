@@ -43,14 +43,18 @@
 
                   検索結果<label id="searchResult-count"><%=bean.size() %></label>件です
             </div>
+
+
             <table class="searchResult-table">
                 <tr>
                     <th class="searchResult-table-no-header">No.</th>
-                    <th class="searchResult-table-detail-header">詳細</th>
+                    <th   class="altnoneLine">詳細</th>
+                    <th  class="noneLine">削除チェック</th>
                     <th class="searchResult-table-no-header">社員ID</th>
                     <th class="searchResult-table-name-header">氏名</th>
 
                     <th  class="altnoneLine">ふりがな</th>
+                    <th  class="altnoneLine">部署</th>
                     <th  class="altnoneLine">e-mail</th>
                      <th  class="altnoneLine">tell</th>
                     <th class="noneLine">
@@ -77,11 +81,18 @@
                 <%int i=1; for(vo.Kenshu_jukou_viewVo line: bean ){ %>
                     <tr class="">
                         <td><%= i++  %></td>
-                        <td class="searchResult-table-detail-body">
-                            <input type="button" class="detail-button" data-key="<%=line.getEmployee_no()  %>"></td>
+                        <td  class="altnoneLine">
+                            <input type="button" class="detail-button" data-key="<%=line.getEmployee_no()  %>">
+                        </td>
+                        <td  class="noneLine">
+                            <input type="checkbox"  data-key="<%=line.getEmployee_no()  %>">
+                        </td>
+
                         <td> <%=line.getEmployee_no() %></td>
+
                         <td> <%=line.getEmployee_family_name() %><%=line.getEmployee_first_name() %> </td>
                         <td  class="altnoneLine"> <%=line.getEmployee_family_name_kana() %><%=line.getEmployee_first_name_kana() %> </td>
+                        <td  class="altnoneLine"> <%=line.getDept_name() %></td>
                         <td  class="altnoneLine"> <%=line.getEmail() %></td>
                         <td  class="altnoneLine"> '<%=line.getCell_tel_no() %></td>
                         <td  class="noneLine">
@@ -96,18 +107,7 @@
                                  <%if(line.getIs_kakunin3()==1 ){ %> checked="checked"  <%}%>  >
                             <%} %>
                         </td>
-                        <td  class="noneLine">
-                            <input type="checkbox" name="is_shusseki1" value="<%=line.getEmployee_no() %>"
-                                 <%if(line.getIs_shusseki()==1 ){ %> checked="checked"  <%}%>  >
-                            <%if(bean.getKaisaidate2()!=null){ %>
-                                <input type="checkbox" name="is_shusseki2" value="<%=line.getEmployee_no() %>"
-                                     <%if(line.getIs_shusseki2()==1 ){ %> checked="checked"  <%}%>  >
-                            <%} %>
-                            <%if(bean.getKaisaidate3()!=null){ %>
-                                <input type="checkbox" name="is_shusseki3" value="<%=line.getEmployee_no() %>"
-                                 <%if(line.getIs_shusseki3()==1 ){ %> checked="checked"  <%}%>  >
-                            <%} %>
-                        </td>
+
                         <td  class="altnoneLine">
                             <%=(line.getIs_shusseki()==1)?"◯":"☓" %><br>
                             <%=(bean.getKaisaidate2()==null)?"":(line.getIs_shusseki2()==1)?"◯":"☓" %><br>
@@ -129,8 +129,7 @@
                         <td><%=line.getChuto_ninasinenji() %></td>
 
                         <td class="noneLine">
-                            <textarea name="kessekiriyu">
-                                <%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %>
+                            <textarea name="kessekiriyu"><%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %>
                             </textarea>
                         </td>
                         <td class="altnoneLine"><%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %></td>
@@ -138,9 +137,12 @@
                            <input type="text"  name="genba_joucho_emp_no"
                               value ="<%=(line.getGenba_joucho_emp_no()==null)?"":line.getGenba_joucho_emp_no() %>" >
                         </td>
-                        <td> <%=line.getEmployee_family_name_j() %><%=line.getEmployee_first_name_j() %> </td>
-                        <td  class="altnoneLine"><%=line.getEmail_j() %></td>
-                        <td  class="noneLine"><%=line.getBiko() %></td>
+                        <td>
+                            <%=(line.getEmployee_family_name_j()==null)?"":line.getEmployee_family_name_j() %>
+                            <%=(line.getEmployee_first_name_j()==null)?"":line.getEmployee_first_name_j() %>
+                        </td>
+                        <td  class="altnoneLine"><%=(line.getEmail_j()==null)?"":line.getEmail_j() %></td>
+                        <td  class="noneLine"><%=(line.getBiko()==null)?"":line.getBiko() %></td>
 
                     </tr>
                 <%} %>
