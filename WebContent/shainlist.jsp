@@ -108,8 +108,13 @@
                 </tr>
                 <%int i =1; for(vo.Shainmaster_wo_retire_viewVo line: bean.getList() ){ %>
                     <tr class="">
-                        <td><%=i++ %></td>
-                        <td><input type="checkbox" name="employee_no" value="<%=line.getEmployee_no() %>" <%if( bean.get(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  ></td>
+                        <td>
+                            <%=i++ %>
+                            <input type="hidden" name="hidden_employee_no" value="<%=line.getEmployee_no() %>"  >
+                        </td>
+                        <td>
+                            <input type="checkbox" name="employee_no" value="<%=line.getEmployee_no() %>" <%if( bean.get(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  >
+                        </td>
                         <td class="searchResult-table-detail-body">
                             <input type="button" class="detail-button" data-key="<%=line.getEmployee_no() %>"></td>
                         <td class="noneLine">

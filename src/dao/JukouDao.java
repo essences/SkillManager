@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import vo.Kenshu_jukou_viewVo;
+import vo.KenshujukouVo;
 
 public class JukouDao extends Dao
 {
@@ -86,6 +87,9 @@ public class JukouDao extends Dao
                 vo.setChuto_ninasinenji(		rset.getInt(	"chuto_ninasinenji")	);
                 vo.setKenshujissekiid(			rset.getInt(	"KENSHUJISSEKIID")		);
                 vo.setBiko(						rset.getString(	"BIKO")					);
+                vo.setIs_kakunin1(				rset.getInt(	"IS_KAKUNIN1")	);
+                vo.setIs_kakunin2(				rset.getInt(	"IS_KAKUNIN2")	);
+                vo.setIs_kakunin3(				rset.getInt(	"IS_KAKUNIN3")	);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
 
                 list.add(vo);
@@ -124,7 +128,8 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`IS_KAKUNIN1`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN2`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN3`, \r\n" +
-            "    `kenshu_jukou_view`.`DEPT_NAME` \r\n" +            " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
+            "    `kenshu_jukou_view`.`DEPT_NAME` \r\n" +
+            " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `KENSHUJISSEKIID`=?"+
             " ORDER BY `EMPLOYEE_NO` ";
 
@@ -166,6 +171,10 @@ public class JukouDao extends Dao
                 vo.setEmployee_first_name_j(	rset.getString("EMPLOYEE_FIRST_NAME_J")	);
                 vo.setEmail_j(					rset.getString("EMAIL_J")				);
                 vo.setBiko(						rset.getString(	"BIKO")					);
+                vo.setIs_kakunin1(				rset.getInt(	"IS_KAKUNIN1")	);
+                vo.setIs_kakunin2(				rset.getInt(	"IS_KAKUNIN2")	);
+                vo.setIs_kakunin3(				rset.getInt(	"IS_KAKUNIN3")	);
+
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
 
 
@@ -173,6 +182,61 @@ public class JukouDao extends Dao
             }
         }
     }
+
+    private static final String JUKOU_INSERT_SQL =
+            "INSERT INTO `kyoso`.`kenshujukou`\r\n" +
+            "(" +
+            "`IS_SHUSSEKI`,\r\n" +
+            "`IS_SHUSSEKI2`,\r\n" +
+            "`IS_SHUSSEKI3`,\r\n" +
+            "`KENSHUJISSEKIID`,\r\n" +
+            "`KESSEKIRIYU`,\r\n" +
+            "`SHAINID`,\r\n" +
+            "`genba_joucho_emp_no`,\r\n" +
+            "`IS_KAKUNIN1`,\r\n" +
+            "`IS_KAKUNIN2`,\r\n" +
+            "`IS_KAKUNIN3`\r\n" +
+            ")\r\n" +
+            "VALUES" +
+            "(?,?,?,?,?,?,?,?,?,?)"
+            ;
+
+
+    public void registSankasha(String kenshujissekiId, List<KenshujukouVo> list) throws SQLException
+    {
+        try ( PreparedStatement stmt = con.prepareStatement( JUKOU_INSERT_SQL );)
+        {
+            for( KenshujukouVo vo: list)
+            {
+                registSankasha( stmt, kenshujissekiId, vo);
+            }
+        }
+    }
+
+    public void registSankasha(PreparedStatement stmt, String kenshujissekiId, KenshujukouVo vo) throws SQLException
+    {
+
+        stmt.setLong(1, vo.getIs_shusseki());
+        stmt.setLong(2, vo.getIs_shusseki2());
+        stmt.setLong(3, vo.getIs_shusseki3());
+
+        stmt.setString(4, kenshujissekiId);
+
+        stmt.setString(5,  vo.getKessekiriyu() );
+        stmt.setString(6, vo.getShainid());
+
+        stmt.setString(7, vo.getGenba_joucho_emp_no());
+        stmt.setLong(8 , vo.getIs_kakunin1());
+        stmt.setLong(9 , vo.getIs_kakunin2());
+        stmt.setLong(10 , vo.getIs_kakunin3());
+
+        int i = stmt.executeUpdate();
+        if( i!= 1 )
+            throw new SQLException("インサートに失敗しました。");
+
+    }
+
+
 
 
 }

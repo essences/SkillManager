@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.JukouListBean;
-import service.KenshuService;
+import service.JukouService;
 
 /**
  * Servlet implementation class JukouServlet
@@ -38,7 +38,7 @@ public class JukouServlet extends HttpServlet {
 
         System.out.println("shainNo" + shainNo);
 
-        KenshuService service = new KenshuService();
+        JukouService service = new JukouService();
 
         JukouListBean bean = service.getJukouList(shainNo);
 

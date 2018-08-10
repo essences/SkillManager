@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.SankashaListBean;
-import service.KenshuService;
+import service.JukouService;
 
 /**
  * Servlet implementation class JukouServlet
@@ -37,7 +37,7 @@ public class SankashaServlet extends HttpServlet {
 
         System.out.println("KENSHUJISSEKIID" + kenshujissekiId);
 
-        KenshuService service = new KenshuService();
+        JukouService service = new JukouService();
 
         SankashaListBean bean = service.getKenshuSankashaList(kenshujissekiId);
 
