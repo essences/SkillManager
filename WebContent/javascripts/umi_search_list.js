@@ -108,3 +108,11 @@ function init()
     }
 }
 
+function getSelected(){
+    // 値(数値)を取得
+    var num = document.searchForm.kenshuList.selectedIndex;
+
+    // 値(value値)を取得
+    return  document.searchForm.kenshuList.options[num].value;
+
+}

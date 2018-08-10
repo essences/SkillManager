@@ -2,230 +2,241 @@ package vo;
 
 /* Code Generator Information.
  * generator Version 1.0.0 release 2007/10/10
- * generated Date Tue Jul 17 13:40:14 JST 2018
+ * generated Date Fri Aug 10 12:31:39 JST 2018
  */
 import java.io.Serializable;
 
 /**
  * Kenshujisseki_viewVo.
  * @author e.hayashi
- * @version 1.0 
- * history 
+ * @version 1.0
+ * history
  * Symbol	Date		Person		Note
- * [1]		2018/07/17	e.hayashi		Generated.
+ * [1]		2018/08/10	e.hayashi		Generated.
  */
 public class Kenshujisseki_viewVo implements Serializable{
 
-	public static final String TABLE = "KENSHUJISSEKI_VIEW";
+    public static final String TABLE = "KENSHUJISSEKI_VIEW";
 
-	/**
-	 * KENSHUJISSEKI:int(10)
-	 */
-	private int kenshujisseki;
+    /**
+     * KENSHUJISSEKI:int(10)
+     */
+    private int kenshujisseki;
 
-	/**
-	 * KAISAIDATE:date(0)
-	 */
-	private java.sql.Date kaisaidate;
+    /**
+     * KAISAIDATE:date(0)
+     */
+    private java.sql.Date kaisaidate;
 
-	/**
-	 * KAISAIDATE2:date(0)
-	 */
-	private java.sql.Date kaisaidate2;
+    /**
+     * KAISAIDATE2:date(0)
+     */
+    private java.sql.Date kaisaidate2;
 
-	/**
-	 * KAISAIDATE3:date(0)
-	 */
-	private java.sql.Date kaisaidate3;
+    /**
+     * KAISAIDATE3:date(0)
+     */
+    private java.sql.Date kaisaidate3;
 
-	/**
-	 * TITLE:varchar(255)
-	 */
-	private String title;
+    /**
+     * TITLE:varchar(255)
+     */
+    private String title;
 
-	/**
-	 * YOTEIDATE:date(0)
-	 */
-	private java.sql.Date yoteidate;
+    /**
+     * YOTEIDATE:date(0)
+     */
+    private java.sql.Date yoteidate;
 
-	/**
-	 * YOTEIDATE2:date(0)
-	 */
-	private java.sql.Date yoteidate2;
+    /**
+     * YOTEIDATE2:date(0)
+     */
+    private java.sql.Date yoteidate2;
 
-	/**
-	 * YOTEIDATE3:date(0)
-	 */
-	private java.sql.Date yoteidate3;
+    /**
+     * YOTEIDATE3:date(0)
+     */
+    private java.sql.Date yoteidate3;
 
-	/**
-	 * KENSHUTYPEID:int(10)
-	 */
-	private int kenshutypeid;
+    /**
+     * KENSHUTYPEID:int(10)
+     */
+    private int kenshutypeid;
 
-	/**
-	 * KOUSHICOMPANY:varchar(255)
-	 */
-	private String koushicompany;
+    /**
+     * KOUSHICOMPANY:varchar(255)
+     */
+    private String koushicompany;
 
-	/**
-	 * KOUSHINAME:varchar(255)
-	 */
-	private String koushiname;
+    /**
+     * KOUSHINAME:varchar(255)
+     */
+    private String koushiname;
 
-	/**
-	 * COST:varchar(10)
-	 */
-	private String cost;
+    /**
+     * COST:varchar(10)
+     */
+    private String cost;
 
-	/**
-	 * BASECOST:varchar(10)
-	 */
-	private String basecost;
+    /**
+     * BASECOST:varchar(10)
+     */
+    private String basecost;
 
-	/**
-	 * IS_EACH_COST:tinyint(3)
-	 */
-	private byte is_each_cost;
+    /**
+     * IS_EACH_COST:tinyint(3)
+     */
+    private byte is_each_cost;
 
-	/**
-	 * NUMDAYS:int(10)
-	 */
-	private int numdays;
+    /**
+     * NUMDAYS:int(10)
+     */
+    private int numdays;
 
-	/**
-	 * JISSHI_ITO:varchar(256)
-	 */
-	private String jisshi_ito;
+    /**
+     * JISSHI_ITO:varchar(256)
+     */
+    private String jisshi_ito;
 
-	/**
-	 * NERAI:varchar(1023)
-	 */
-	private String nerai;
+    /**
+     * NERAI:varchar(1023)
+     */
+    private String nerai;
 
-	/**
-	 * GAIYOU:varchar(1023)
-	 */
-	private String gaiyou;
+    /**
+     * GAIYOU:varchar(1023)
+     */
+    private String gaiyou;
 
-	/**
-	* Constractor
-	*/
-	public Kenshujisseki_viewVo(){}
+    /**
+     * count:bigint(19)
+     */
+    private long count;
 
-	public int getKenshujisseki(){ return this.kenshujisseki; }
+    /**
+    * Constractor
+    */
+    public Kenshujisseki_viewVo(){}
 
-	public void setKenshujisseki(int kenshujisseki){ this.kenshujisseki = kenshujisseki; }
+    public int getKenshujisseki(){ return this.kenshujisseki; }
 
-	public java.sql.Date getKaisaidate(){ return this.kaisaidate; }
+    public void setKenshujisseki(int kenshujisseki){ this.kenshujisseki = kenshujisseki; }
 
-	public void setKaisaidate(java.sql.Date kaisaidate){ this.kaisaidate = kaisaidate; }
+    public java.sql.Date getKaisaidate(){ return this.kaisaidate; }
 
-	public java.sql.Date getKaisaidate2(){ return this.kaisaidate2; }
+    public void setKaisaidate(java.sql.Date kaisaidate){ this.kaisaidate = kaisaidate; }
 
-	public void setKaisaidate2(java.sql.Date kaisaidate2){ this.kaisaidate2 = kaisaidate2; }
+    public java.sql.Date getKaisaidate2(){ return this.kaisaidate2; }
 
-	public java.sql.Date getKaisaidate3(){ return this.kaisaidate3; }
+    public void setKaisaidate2(java.sql.Date kaisaidate2){ this.kaisaidate2 = kaisaidate2; }
 
-	public void setKaisaidate3(java.sql.Date kaisaidate3){ this.kaisaidate3 = kaisaidate3; }
+    public java.sql.Date getKaisaidate3(){ return this.kaisaidate3; }
 
-	public String getTitle(){ return this.title; }
+    public void setKaisaidate3(java.sql.Date kaisaidate3){ this.kaisaidate3 = kaisaidate3; }
 
-	public void setTitle(String title){ this.title = title; }
+    public String getTitle(){ return this.title; }
 
-	public java.sql.Date getYoteidate(){ return this.yoteidate; }
+    public void setTitle(String title){ this.title = title; }
 
-	public void setYoteidate(java.sql.Date yoteidate){ this.yoteidate = yoteidate; }
+    public java.sql.Date getYoteidate(){ return this.yoteidate; }
 
-	public java.sql.Date getYoteidate2(){ return this.yoteidate2; }
+    public void setYoteidate(java.sql.Date yoteidate){ this.yoteidate = yoteidate; }
 
-	public void setYoteidate2(java.sql.Date yoteidate2){ this.yoteidate2 = yoteidate2; }
+    public java.sql.Date getYoteidate2(){ return this.yoteidate2; }
 
-	public java.sql.Date getYoteidate3(){ return this.yoteidate3; }
+    public void setYoteidate2(java.sql.Date yoteidate2){ this.yoteidate2 = yoteidate2; }
 
-	public void setYoteidate3(java.sql.Date yoteidate3){ this.yoteidate3 = yoteidate3; }
+    public java.sql.Date getYoteidate3(){ return this.yoteidate3; }
 
-	public int getKenshutypeid(){ return this.kenshutypeid; }
+    public void setYoteidate3(java.sql.Date yoteidate3){ this.yoteidate3 = yoteidate3; }
 
-	public void setKenshutypeid(int kenshutypeid){ this.kenshutypeid = kenshutypeid; }
+    public int getKenshutypeid(){ return this.kenshutypeid; }
 
-	public String getKoushicompany(){ return this.koushicompany; }
+    public void setKenshutypeid(int kenshutypeid){ this.kenshutypeid = kenshutypeid; }
 
-	public void setKoushicompany(String koushicompany){ this.koushicompany = koushicompany; }
+    public String getKoushicompany(){ return this.koushicompany; }
 
-	public String getKoushiname(){ return this.koushiname; }
+    public void setKoushicompany(String koushicompany){ this.koushicompany = koushicompany; }
 
-	public void setKoushiname(String koushiname){ this.koushiname = koushiname; }
+    public String getKoushiname(){ return this.koushiname; }
 
-	public String getCost(){ return this.cost; }
+    public void setKoushiname(String koushiname){ this.koushiname = koushiname; }
 
-	public void setCost(String cost){ this.cost = cost; }
+    public String getCost(){ return this.cost; }
 
-	public String getBasecost(){ return this.basecost; }
+    public void setCost(String cost){ this.cost = cost; }
 
-	public void setBasecost(String basecost){ this.basecost = basecost; }
+    public String getBasecost(){ return this.basecost; }
 
-	public byte getIs_each_cost(){ return this.is_each_cost; }
+    public void setBasecost(String basecost){ this.basecost = basecost; }
 
-	public void setIs_each_cost(byte is_each_cost){ this.is_each_cost = is_each_cost; }
+    public byte getIs_each_cost(){ return this.is_each_cost; }
 
-	public int getNumdays(){ return this.numdays; }
+    public void setIs_each_cost(byte is_each_cost){ this.is_each_cost = is_each_cost; }
 
-	public void setNumdays(int numdays){ this.numdays = numdays; }
+    public int getNumdays(){ return this.numdays; }
 
-	public String getJisshi_ito(){ return this.jisshi_ito; }
+    public void setNumdays(int numdays){ this.numdays = numdays; }
 
-	public void setJisshi_ito(String jisshi_ito){ this.jisshi_ito = jisshi_ito; }
+    public String getJisshi_ito(){ return this.jisshi_ito; }
 
-	public String getNerai(){ return this.nerai; }
+    public void setJisshi_ito(String jisshi_ito){ this.jisshi_ito = jisshi_ito; }
 
-	public void setNerai(String nerai){ this.nerai = nerai; }
+    public String getNerai(){ return this.nerai; }
 
-	public String getGaiyou(){ return this.gaiyou; }
+    public void setNerai(String nerai){ this.nerai = nerai; }
 
-	public void setGaiyou(String gaiyou){ this.gaiyou = gaiyou; }
+    public String getGaiyou(){ return this.gaiyou; }
 
-	public String toString(){
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("[Kenshujisseki_viewVo:");
-		buffer.append(" kenshujisseki: ");
-		buffer.append(kenshujisseki);
-		buffer.append(" kaisaidate: ");
-		buffer.append(kaisaidate);
-		buffer.append(" kaisaidate2: ");
-		buffer.append(kaisaidate2);
-		buffer.append(" kaisaidate3: ");
-		buffer.append(kaisaidate3);
-		buffer.append(" title: ");
-		buffer.append(title);
-		buffer.append(" yoteidate: ");
-		buffer.append(yoteidate);
-		buffer.append(" yoteidate2: ");
-		buffer.append(yoteidate2);
-		buffer.append(" yoteidate3: ");
-		buffer.append(yoteidate3);
-		buffer.append(" kenshutypeid: ");
-		buffer.append(kenshutypeid);
-		buffer.append(" koushicompany: ");
-		buffer.append(koushicompany);
-		buffer.append(" koushiname: ");
-		buffer.append(koushiname);
-		buffer.append(" cost: ");
-		buffer.append(cost);
-		buffer.append(" basecost: ");
-		buffer.append(basecost);
-		buffer.append(" is_each_cost: ");
-		buffer.append(is_each_cost);
-		buffer.append(" numdays: ");
-		buffer.append(numdays);
-		buffer.append(" jisshi_ito: ");
-		buffer.append(jisshi_ito);
-		buffer.append(" nerai: ");
-		buffer.append(nerai);
-		buffer.append(" gaiyou: ");
-		buffer.append(gaiyou);
-		buffer.append("]");
-		return buffer.toString();
-	}
+    public void setGaiyou(String gaiyou){ this.gaiyou = gaiyou; }
+
+    public long getCount(){ return this.count; }
+
+    public void setCount(long count){ this.count = count; }
+
+    public String toString(){
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("[Kenshujisseki_viewVo:");
+        buffer.append(" kenshujisseki: ");
+        buffer.append(kenshujisseki);
+        buffer.append(" kaisaidate: ");
+        buffer.append(kaisaidate);
+        buffer.append(" kaisaidate2: ");
+        buffer.append(kaisaidate2);
+        buffer.append(" kaisaidate3: ");
+        buffer.append(kaisaidate3);
+        buffer.append(" title: ");
+        buffer.append(title);
+        buffer.append(" yoteidate: ");
+        buffer.append(yoteidate);
+        buffer.append(" yoteidate2: ");
+        buffer.append(yoteidate2);
+        buffer.append(" yoteidate3: ");
+        buffer.append(yoteidate3);
+        buffer.append(" kenshutypeid: ");
+        buffer.append(kenshutypeid);
+        buffer.append(" koushicompany: ");
+        buffer.append(koushicompany);
+        buffer.append(" koushiname: ");
+        buffer.append(koushiname);
+        buffer.append(" cost: ");
+        buffer.append(cost);
+        buffer.append(" basecost: ");
+        buffer.append(basecost);
+        buffer.append(" is_each_cost: ");
+        buffer.append(is_each_cost);
+        buffer.append(" numdays: ");
+        buffer.append(numdays);
+        buffer.append(" jisshi_ito: ");
+        buffer.append(jisshi_ito);
+        buffer.append(" nerai: ");
+        buffer.append(nerai);
+        buffer.append(" gaiyou: ");
+        buffer.append(gaiyou);
+        buffer.append(" count: ");
+        buffer.append(count);
+        buffer.append("]");
+        return buffer.toString();
+    }
 
 }

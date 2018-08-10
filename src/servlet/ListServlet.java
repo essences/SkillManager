@@ -101,16 +101,7 @@ public class ListServlet extends HttpServlet {
 
     }
 
-    //削除する参加者のIDリストをリクエストから生成する
-    private List<String> getDelSankashaListByRequest(HttpServletRequest request)
-    {
-        List<String> list = new ArrayList<String>();
 
-
-
-        return list;
-
-    }
 
     //参加者登録機能
     private void doSankashaTouroku(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

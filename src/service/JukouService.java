@@ -99,4 +99,33 @@ public class JukouService
             return bean;
         }
 
+
+        public SankashaListBean updateKenshuSankashaList(String kenshujissekiId, List<KenshujukouVo> list) {
+            SankashaListBean bean = new SankashaListBean();
+            try ( Connection con = Dao.getConnection(); )
+            {
+                JukouDao dao = new JukouDao(con);
+
+                dao.updateSankasha(  list );
+
+                dao.getSankashaList( bean, kenshujissekiId );
+
+                if( bean.size() != 0 )
+                {
+                    bean.setTitle(			bean.get(0).getTitle()			);
+                    bean.setKaisaidate(		bean.get(0).getKaisaidate()		);
+                    bean.setKaisaidate2(	bean.get(0).getKaisaidate2()		);
+                    bean.setKaisaidate3(	bean.get(0).getKaisaidate3()		);
+                    bean.setNumdays(		bean.get(0).getNumdays()	);
+                }
+
+            }
+            catch( SQLException e )
+            {
+                e.printStackTrace();
+                throw new RuntimeException( e );
+            }
+
+            return bean;        }
+
 }

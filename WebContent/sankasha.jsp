@@ -17,10 +17,15 @@
 <body onload="init();">
     <!-- 会社ロゴ -->
     <a href="/"><img src="./images/common/logo01.gif"></a>
-    <form method="POST" name="searchForm" id="searchForm" action="KenshuList">
+    <form method="POST"" name="KenshuListForm" id="KenshuListForm" action="KenshuList">
+    </form>
 
+    <form method="POST" name="searchForm" id="searchForm" action="Sankasha">
+    <input type="hidden"  name="KENSHUJISSEKIID"  value="<%=bean.getKenshujissekiid() %>" >
         <div class="searchTypeLine"></div>
         <div class="searchJoken-box">
+            <input type="button" value="研修リストへ" onClick="document.KenshuListForm.submit()"><br>
+
                 <br>
                <div class="searchJoken-input-box">
                 <strong>実施研修ごと社員リスト</strong>
@@ -28,7 +33,8 @@
              <p style="text-align: right">
                  <strong> 入力欄表示 ：</strong><input name="check_type" type="checkbox" onclick="changeCell('noneLine');">
                  <input type="submit" name="regist_shain_to_kenshu"
-                     class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button" value="情報を更新"  >
+                     class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button" value="情報を更新"
+                     onclick='return confirm("このリストを本当に更新しますか？");' >
             </p>
             <hr>
             <div class="searchJoken-input-box">
@@ -80,12 +86,14 @@
                 </tr>
                 <%int i=1; for(vo.Kenshu_jukou_viewVo line: bean ){ %>
                     <tr class="">
-                        <td><%= i++  %></td>
+                        <td><%= i++  %>
+                         <input type="hidden" name="hidden_kenshujukouid" value="<%=line.getKenshujukouid() %>">
+                        </td>
                         <td  class="altnoneLine">
                             <input type="button" class="detail-button" data-key="<%=line.getEmployee_no()  %>">
                         </td>
                         <td  class="noneLine">
-                            <input type="checkbox"  data-key="<%=line.getEmployee_no()  %>">
+                            <input type="checkbox"   name="deleleCkecbox"  value="<%=line.getKenshujukouid() %>">
                         </td>
 
                         <td> <%=line.getEmployee_no() %></td>
@@ -96,14 +104,14 @@
                         <td  class="altnoneLine"> <%=line.getEmail() %></td>
                         <td  class="altnoneLine"> '<%=line.getCell_tel_no() %></td>
                         <td  class="noneLine">
-                            <input type="checkbox" name="is_kakunin1" value="<%=line.getEmployee_no() %>"
+                            <input type="checkbox" name="is_kakunin1" value="<%=line.getKenshujukouid() %>"
                                  <%if(line.getIs_kakunin1()==1 ){ %> checked="checked"  <%}%>  >
                             <%if(bean.getKaisaidate2()!=null){ %>
-                                <input type="checkbox" name="is_kakunin2" value="<%=line.getEmployee_no() %>"
+                                <input type="checkbox" name="is_kakunin2" value="<%=line.getKenshujukouid() %>"
                                      <%if(line.getIs_kakunin2()==1 ){ %> checked="checked"  <%}%>  >
                             <%} %>
                             <%if(bean.getKaisaidate3()!=null){ %>
-                                <input type="checkbox" name="is_kakunin3" value="<%=line.getEmployee_no() %>"
+                                <input type="checkbox" name="is_kakunin3" value="<%=line.getKenshujukouid() %>"
                                  <%if(line.getIs_kakunin3()==1 ){ %> checked="checked"  <%}%>  >
                             <%} %>
                         </td>
@@ -114,14 +122,14 @@
                             <%=(bean.getKaisaidate3()==null)?"":(line.getIs_shusseki3()==1)?"◯":"☓" %>
                         </td>
                         <td  class="noneLine">
-                            <input type="checkbox" name="is_shusseki" value="<%=line.getEmployee_no() %>"
+                            <input type="checkbox" name="is_shusseki" value="<%=line.getKenshujukouid() %>"
                                  <%if(line.getIs_shusseki()==1 ){ %> checked="checked"  <%}%>  >
                             <%if(bean.getKaisaidate2()!=null){ %>
-                                <input type="checkbox" name="is_shusseki" value="<%=line.getEmployee_no() %>"
+                                <input type="checkbox" name="is_shusseki" value="<%=line.getKenshujukouid() %>"
                                      <%if(line.getIs_shusseki2()==1 ){ %> checked="checked"  <%}%>  >
                             <%} %>
                             <%if(bean.getKaisaidate3()!=null){ %>
-                                <input type="checkbox" name="is_shusseki" value="<%=line.getEmployee_no() %>"
+                                <input type="checkbox" name="is_shusseki" value="<%=line.getKenshujukouid() %>"
                                  <%if(line.getIs_shusseki3()==1 ){ %> checked="checked"  <%}%>  >
                             <%} %>
                         </td>
@@ -129,8 +137,7 @@
                         <td><%=line.getChuto_ninasinenji() %></td>
 
                         <td class="noneLine">
-                            <textarea name="kessekiriyu"><%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %>
-                            </textarea>
+                            <textarea name="kessekiriyu"><%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %></textarea>
                         </td>
                         <td class="altnoneLine"><%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %></td>
                         <td class="noneLine">

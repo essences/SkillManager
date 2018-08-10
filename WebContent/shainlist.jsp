@@ -47,8 +47,10 @@
                         <option value="<%=vo.getKenshujisseki() %>"  > <%=vo.getTitle() %>（<%=vo.getYoteidate() %>,<%=vo.getNumdays() %>日間）  </option>
                 <%} %>
             </select>
-                     <input type="button" class="sankashalist-button" data-key="" value="参加者リストを表示"  >
-                    <input type="submit" name="regist_shain_to_kenshu" class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button" value="研修に参加者を登録"  >
+                     <input type="button" class="sankashalist-button" data-key="" value="参加者リストを表示"
+                         onclick='this.dataset.key=getSelected();'>
+                    <input type="submit" name="regist_shain_to_kenshu" class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button"
+                        value="研修に参加者を登録"   onclick='return confirm("このリストを本当に研修参加者に登録しますか？");'>
             </p>
             <hr>
              <div class="searchJoken-input-box">
@@ -128,8 +130,7 @@
                             <input type="checkbox" name="toujitu_shusseki3" value="<%=line.getEmployee_no() %>" <%if( bean.getToujitsuShusseki3(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  >
                         </td>
                         <td class="noneLine">
-                            <textarea  name="kesseki_jiyu" >
-                            </textarea>
+                            <textarea  name="kesseki_jiyu" ></textarea>
                         </td>
                         <td><%=line.getEmployee_no() %></td>
                         <td><%=line.getEmployee_family_name() %> <%=line.getEmployee_first_name() %> </td>

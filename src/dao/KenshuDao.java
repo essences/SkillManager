@@ -36,7 +36,9 @@ public class KenshuDao extends Dao
             "    `kenshujisseki_view`.`NUMDAYS`,\r\n" +
             "    `kenshujisseki_view`.`JISSHI_ITO`,\r\n" +
             "    `kenshujisseki_view`.`NERAI`,\r\n" +
-            "    `kenshujisseki_view`.`GAIYOU`\r\n" +
+            "    `kenshujisseki_view`.`GAIYOU`,\r\n" +
+            "    `kenshujisseki_view`.`count`\r\n" +
+
             "FROM `kyoso`.`kenshujisseki_view`\r\n" +
             "";
 
@@ -84,6 +86,7 @@ public class KenshuDao extends Dao
                 vo.setNumdays(			rset.getInt(	"NUMDAYS")				);
                 vo.setTitle(			rset.getString(	"TITLE")				);
                 vo.setJisshi_ito(		rset.getString(	"JISSHI_ITO")			);
+                vo.setCount(			rset.getLong(	"count")				);
 
                 list.add(vo);
             }
@@ -120,6 +123,7 @@ public class KenshuDao extends Dao
             "    `kenshujisseki_view`.`JISSHI_ITO`,\r\n" +
             "    `kenshujisseki_view`.`NERAI`,\r\n" +
             "    `kenshujisseki_view`.`GAIYOU`\r\n" +
+            "    `kenshujisseki_view`.`count`\r\n" +
             "FROM `kyoso`.`kenshujisseki_view`;\r\n" +
             "";
 
@@ -165,7 +169,7 @@ public class KenshuDao extends Dao
                 vo.setNumdays(			rset.getInt(	"NUMDAYS")				);
                 vo.setTitle(			rset.getString(	"TITLE")				);
                 vo.setJisshi_ito(		rset.getString(	"JISSHI_ITO")			);
-
+                vo.setCount(			rset.getLong(	"count")				);
             }
         }
 

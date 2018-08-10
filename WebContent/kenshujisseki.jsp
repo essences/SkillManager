@@ -104,6 +104,7 @@
                     <th class="searchResult-table-name-header">予定日付</th>
                     <th class="searchResult-table-busho-header">実績日付</th>
                     <th class="searchResult-table-yakushoku-header">研修日数</th>
+                    <th class="searchResult-table-busho-header">登録人数</th>
                     <th class="searchResult-table-keiyakusaki-header">講師名</th>
                     <th class="searchResult-table-email-header">研修会社</th>
 
@@ -113,7 +114,7 @@
                         <td><%= i++  %></td>
                         <td class="searchResult-table-detail-body">
                             <input type="button" class="detail-button" data-key="<%=line.getKenshujisseki()  %>">
-                            <input type="button" class="detail-button2" data-key="<%=line.getKenshujisseki()  %>">
+
                         </td>
                         <td><%=line.getTitle() %></td>
                         <td><%=(line.getJisshi_ito()==null)?"":line.getJisshi_ito() %></td>
@@ -128,6 +129,7 @@
                             <%=( line.getKaisaidate3()==null)? "":line.getKaisaidate3() %>
                         </td>
                         <td><%=line.getNumdays() %></td>
+                        <td><%=line.getCount() %></td>
                         <td><%=line.getKoushiname() %></td>
                         <td><%=line.getKoushicompany() %></td>
                     </tr>
