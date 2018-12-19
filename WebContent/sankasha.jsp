@@ -117,19 +117,19 @@
                         </td>
 
                         <td  class="altnoneLine">
-                            <%=(line.getIs_shusseki()==1)?"◯":"☓" %><br>
-                            <%=(bean.getKaisaidate2()==null)?"":(line.getIs_shusseki2()==1)?"◯":"☓" %><br>
+                            <%=(line.getIs_shusseki()==1)?"◯":"☓" %>
+                            <%=(bean.getKaisaidate2()==null)?"":(line.getIs_shusseki2()==1)?"◯":"☓" %>
                             <%=(bean.getKaisaidate3()==null)?"":(line.getIs_shusseki3()==1)?"◯":"☓" %>
                         </td>
                         <td  class="noneLine">
                             <input type="checkbox" name="is_shusseki" value="<%=line.getKenshujukouid() %>"
                                  <%if(line.getIs_shusseki()==1 ){ %> checked="checked"  <%}%>  >
                             <%if(bean.getKaisaidate2()!=null){ %>
-                                <input type="checkbox" name="is_shusseki" value="<%=line.getKenshujukouid() %>"
+                                <input type="checkbox" name="is_shusseki2" value="<%=line.getKenshujukouid() %>"
                                      <%if(line.getIs_shusseki2()==1 ){ %> checked="checked"  <%}%>  >
                             <%} %>
                             <%if(bean.getKaisaidate3()!=null){ %>
-                                <input type="checkbox" name="is_shusseki" value="<%=line.getKenshujukouid() %>"
+                                <input type="checkbox" name="is_shusseki3" value="<%=line.getKenshujukouid() %>"
                                  <%if(line.getIs_shusseki3()==1 ){ %> checked="checked"  <%}%>  >
                             <%} %>
                         </td>
