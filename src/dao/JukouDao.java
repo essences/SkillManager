@@ -196,10 +196,11 @@ public class JukouDao extends Dao
             "`genba_joucho_emp_no`,\r\n" +
             "`IS_KAKUNIN1`,\r\n" +
             "`IS_KAKUNIN2`,\r\n" +
-            "`IS_KAKUNIN3`\r\n" +
+            "`IS_KAKUNIN3`,\r\n" +
+            "`SYSTEM_NO`\r\n" +
             ")\r\n" +
             "VALUES" +
-            "(?,?,?,?,?,?,?,?,?,?)"
+            "(?,?,?,?,?,?,?,?,?,?,?)"
             ;
 
 
@@ -224,13 +225,14 @@ public class JukouDao extends Dao
 
         stmt.setString(4, kenshujissekiId);
 
-        stmt.setString(5,  vo.getKessekiriyu() );
-        stmt.setString(6, vo.getShainid());
+        stmt.setString(5,  	vo.getKessekiriyu() );
+        stmt.setString(6, 	vo.getShainid());
 
-        stmt.setString(7, vo.getGenba_joucho_emp_no());
-        stmt.setLong(8 , vo.getIs_kakunin1());
-        stmt.setLong(9 , vo.getIs_kakunin2());
-        stmt.setLong(10 , vo.getIs_kakunin3());
+        stmt.setString(7, 	vo.getGenba_joucho_emp_no());
+        stmt.setLong(8 , 	vo.getIs_kakunin1());
+        stmt.setLong(9 , 	vo.getIs_kakunin2());
+        stmt.setLong(10 , 	vo.getIs_kakunin3());
+        stmt.setString(11, 	vo.getSystemNo());
 
         int i = stmt.executeUpdate();
         if( i!= 1 )

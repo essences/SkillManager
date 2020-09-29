@@ -113,6 +113,7 @@
                         <td>
                             <%=i++ %>
                             <input type="hidden" name="hidden_employee_no" value="<%=line.getEmployee_no() %>"  >
+                            <input type="hidden" name="hidden_system_no" value="<%=line.getSystem_no() %>"  >
                         </td>
                         <td>
                             <input type="checkbox" name="employee_no" value="<%=line.getEmployee_no() %>" <%if( bean.get(line.getEmployee_no() )!=null ){ %> checked="checked"  <%}%>  >

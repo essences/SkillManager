@@ -9,8 +9,8 @@ import java.io.Serializable;
 /**
  * Shainmaster_wo_retire_viewVo.
  * @author e.hayashi
- * @version 1.0 
- * history 
+ * @version 1.0
+ * history
  * Symbol	Date		Person		Note
  * [1]		2018/08/08	e.hayashi		Generated.
  */
@@ -22,6 +22,8 @@ public class Shainmaster_wo_retire_viewVo implements Serializable{
 	 * 社員No:varchar(5)
 	 */
 	private String employee_no;
+	private String system_no;
+
 
 	/**
 	 * 会社コード:char(5)
@@ -283,6 +285,16 @@ public class Shainmaster_wo_retire_viewVo implements Serializable{
 	public String getBiko(){ return this.biko; }
 
 	public void setBiko(String biko){ this.biko = biko; }
+
+
+
+	public String getSystem_no() {
+		return system_no;
+	}
+
+	public void setSystem_no(String system_no) {
+		this.system_no = system_no;
+	}
 
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();

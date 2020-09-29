@@ -65,6 +65,8 @@ public class ListServlet extends HttpServlet {
         List<KenshujukouVo> list = new ArrayList<KenshujukouVo>();
 
         String[] idList =  request.getParameterValues("hidden_employee_no");
+        String[] sysIdList =  request.getParameterValues("hidden_system_no");
+
         String[] jizen_shusseki1List =  request.getParameterValues("jizen_shusseki1");
         String[] jizen_shusseki2List =  request.getParameterValues("jizen_shusseki2");
         String[] jizen_shusseki3List =  request.getParameterValues("jizen_shusseki3");
@@ -80,7 +82,8 @@ public class ListServlet extends HttpServlet {
         {
             KenshujukouVo vo = new KenshujukouVo();
 
-            vo.setShainid( idList[i] );
+            vo.setShainid(  idList[i]    );
+            vo.setSystemNo( sysIdList[i] );
 
             vo.setIs_kakunin1( isContainInList( jizen_shusseki1List, idList[i] )?1:0 );
             vo.setIs_kakunin2( isContainInList( jizen_shusseki2List, idList[i] )?1:0 );

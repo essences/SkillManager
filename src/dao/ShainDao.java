@@ -49,7 +49,8 @@ public class ShainDao extends Dao
             "    `shainmaster_wo_retire_view`.`POSITION`,\r\n" +
             "    `shainmaster_wo_retire_view`.`UPGRADE_DATE`,\r\n" +
             "    `shainmaster_wo_retire_view`.`chuto_ninasinenji`,\r\n" +
-            "    `shainmaster_wo_retire_view`.`biko`\r\n" +
+            "    `shainmaster_wo_retire_view`.`biko`,\r\n" +
+            "    `shainmaster_wo_retire_view`.`system_no`\r\n" +
             "FROM `kyoso`.`shainmaster_wo_retire_view`\r\n" +
             "";
 
@@ -123,6 +124,7 @@ public class ShainDao extends Dao
                 vo.setTel_no(					rset.getString("CELL_TEL_NO")			);
                 vo.setChuto_ninasinenji(		rset.getInt("chuto_ninasinenji")		);
                 vo.setBiko(						rset.getString("biko")					);
+                vo.setSystem_no(				rset.getString("system_no")				);
 
                 list.add(vo);
             }
