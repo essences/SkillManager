@@ -98,6 +98,9 @@ public class KenshujukouVo implements Serializable{
      */
     private String is_muko;
 
+    private String systemNo;
+
+
     /**
     * Constractor
     */
@@ -175,7 +178,18 @@ public class KenshujukouVo implements Serializable{
 
     public void setIs_muko(String is_muko){ this.is_muko = is_muko; }
 
-    public String toString(){
+
+
+
+    public String getSystemNo() {
+		return systemNo;
+	}
+
+	public void setSystemNo(String systemNo) {
+		this.systemNo = systemNo;
+	}
+
+	public String toString(){
         StringBuffer buffer = new StringBuffer();
         buffer.append("[KenshujukouVo:");
         buffer.append(" kenshujukouid: ");

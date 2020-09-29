@@ -192,7 +192,7 @@ public class JukouDao extends Dao
             "`IS_SHUSSEKI3`,\r\n" +
             "`KENSHUJISSEKIID`,\r\n" +
             "`KESSEKIRIYU`,\r\n" +
-            "`SHAINID`,\r\n" +
+            "`EMPLOYEE_NO`,\r\n" +
             "`genba_joucho_emp_no`,\r\n" +
             "`IS_KAKUNIN1`,\r\n" +
             "`IS_KAKUNIN2`,\r\n" +
