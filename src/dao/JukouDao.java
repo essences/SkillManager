@@ -49,6 +49,7 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`IS_KAKUNIN1`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN2`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN3`, \r\n" +
+            "    `kenshu_jukou_view`.`GROUP_NAME`, \r\n" +
             "    `kenshu_jukou_view`.`DEPT_NAME` \r\n" +
             " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `EMPLOYEE_NO`=?"+
@@ -90,6 +91,7 @@ public class JukouDao extends Dao
                 vo.setIs_kakunin1(				rset.getInt(	"IS_KAKUNIN1")	);
                 vo.setIs_kakunin2(				rset.getInt(	"IS_KAKUNIN2")	);
                 vo.setIs_kakunin3(				rset.getInt(	"IS_KAKUNIN3")	);
+                vo.setGroup_name(				rset.getString(	"GROUP_NAME")			);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
 
                 list.add(vo);
@@ -128,6 +130,7 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`IS_KAKUNIN1`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN2`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN3`, \r\n" +
+            "    `kenshu_jukou_view`.`GROUP_NAME`, \r\n" +
             "    `kenshu_jukou_view`.`DEPT_NAME`  \r\n" +
             " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `KENSHUJISSEKIID`=? "+
@@ -175,7 +178,7 @@ public class JukouDao extends Dao
                 vo.setIs_kakunin1(				rset.getInt(	"IS_KAKUNIN1")	);
                 vo.setIs_kakunin2(				rset.getInt(	"IS_KAKUNIN2")	);
                 vo.setIs_kakunin3(				rset.getInt(	"IS_KAKUNIN3")	);
-
+                vo.setGroup_name(				rset.getString(	"GROUP_NAME")			);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
 
 

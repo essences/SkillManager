@@ -164,11 +164,26 @@ public class Kenshu_jukou_viewVo implements Serializable{
     private int is_kakunin3;
 
     /**
+     * 事業本部名:varchar(60)
+     */
+    private String group_name;
+
+
+
+    /**
      * 部署名:varchar(60)
      */
     private String dept_name;
 
-    /**
+    public String getGroup_name() {
+		return group_name;
+	}
+
+	public void setGroup_name(String group_name) {
+		this.group_name = group_name;
+	}
+
+	/**
     * Constractor
     */
     public Kenshu_jukou_viewVo(){}

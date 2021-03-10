@@ -60,7 +60,7 @@
                     <th class="searchResult-table-name-header">氏名</th>
 
                     <th  class="altnoneLine">ふりがな</th>
-                    <th  class="altnoneLine">部署</th>
+                    <th  class="altnoneLine">事業本部</th>
                     <th  class="altnoneLine">e-mail</th>
                      <th  class="altnoneLine">tell</th>
                     <th class="noneLine">
@@ -100,7 +100,7 @@
 
                         <td> <%=line.getEmployee_family_name() %><%=line.getEmployee_first_name() %> </td>
                         <td  class="altnoneLine"> <%=line.getEmployee_family_name_kana() %><%=line.getEmployee_first_name_kana() %> </td>
-                        <td  class="altnoneLine"> <%=line.getDept_name() %></td>
+                        <td  class="altnoneLine"> <%=line.getGroup_name() %></td>
                         <td  class="altnoneLine"> <%=line.getEmail() %></td>
                         <td  class="altnoneLine"> '<%=line.getCell_tel_no() %></td>
                         <td  class="noneLine">
