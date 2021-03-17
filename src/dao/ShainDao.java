@@ -66,9 +66,15 @@ public class ShainDao extends Dao
             )
                     throws SQLException
     {
-        StringBuilder sql =new StringBuilder( SEARCH_SQL );
-        if(  idList != null || searchJoken.length() !=0 )
-           sql.append(" WHERE ");
+
+    	StringBuilder sql =new StringBuilder( SEARCH_SQL );
+        sql.append(" WHERE EMPLOYEE_NO LIKE \"11%%%%\" ");
+
+    	if(  idList != null || searchJoken.length() !=0 )
+           sql.append(" and (");
+
+        //if(  idList != null || searchJoken.length() !=0 )
+        //   sql.append(" WHERE EMPLOYEE_NO LIKE \"11%%%%\" and (");
 
         if( idList != null )
         {
@@ -93,6 +99,8 @@ public class ShainDao extends Dao
             sql.append(" POSITION LIKE \"%" + searchJoken + "%\"" );
         }
 
+    	if(  idList != null || searchJoken.length() !=0 )
+            sql.append(" )");
 
         if( searchSort == SearchSort.年次 )
             sql.append(" ORDER BY `nenji`,`EMPLOYEE_NO` desc ");
