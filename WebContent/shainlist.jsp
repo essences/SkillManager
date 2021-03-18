@@ -138,7 +138,7 @@
                         <td><%=line.getEmployee_family_name() %> <%=line.getEmployee_first_name() %> </td>
                         <td class="altnoneLine"><%=line.getEmployee_family_name_kana() %> <%=line.getEmployee_first_name_kana() %> </td>
                         <td class="noneLine"><input type="text" name="genba_joucho_emp_no"> </td>
-                        <td><%=line.getDept_name() %></td>
+                        <td><%=( line.getGroup_name()==null || line.getGroup_name().equals(""))?line.getDept_name():line.getGroup_name() %></td>
                         <td><%=(line.getPosition()==null)?"":line.getPosition() %></td>
                         <td class="altnoneLine"><%=line.getNenji() %></td>
                         <td><%=(line.getChuto_ninasinenji()==0)?"": line.getChuto_ninasinenji() %></td>

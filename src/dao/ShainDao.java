@@ -127,6 +127,7 @@ public class ShainDao extends Dao
                 vo.setEmployee_first_name_kana( rset.getString(	"EMPLOYEE_FIRST_NAME_KANA")  );
                 vo.setNenji(					rset.getLong(	"nenji")				);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
+                vo.setGroup_name(				rset.getString(	"GROUP_NAME"));
                 vo.setPosition(					rset.getString("POSITION")				);
                 vo.setEmail(					rset.getString("EMAIL")					);
                 vo.setTel_no(					rset.getString("CELL_TEL_NO")			);
