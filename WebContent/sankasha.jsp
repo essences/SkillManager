@@ -100,7 +100,7 @@
 
                         <td> <%=line.getEmployee_family_name() %><%=line.getEmployee_first_name() %> </td>
                         <td  class="altnoneLine"> <%=line.getEmployee_family_name_kana() %><%=line.getEmployee_first_name_kana() %> </td>
-                        <td  class="altnoneLine"> <%=line.getGroup_name() %></td>
+                        <td  class="altnoneLine"> <%=( line.getGroup_name()==null || line.getGroup_name().equals(""))?line.getDept_name():line.getGroup_name()  %></td>
                         <td  class="altnoneLine"> <%=line.getEmail() %></td>
                         <td  class="altnoneLine"> '<%=line.getCell_tel_no() %></td>
                         <td  class="noneLine">
