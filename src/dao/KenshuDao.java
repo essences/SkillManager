@@ -224,13 +224,18 @@ public class KenshuDao extends Dao
     private static final String KENSHUJISSEKI_INSERT_SQL =
             "INSERT INTO `kyoso`.`kenshujisseki`\r\n" +
             "(`YOTEIDATE`,\r\n" +
+            "`KAISAIDATE`,\r\n" +
             "`YOTEIDATE2`,\r\n" +
+            "`KAISAIDATE2`,\r\n" +
             "`YOTEIDATE3`,\r\n" +
+            "`KAISAIDATE3`,\r\n" +
             "`KENSHUTYPEID`,\r\n" +
-            "`JISSHI_ITO` )\r\n" +
+            "`JISSHI_ITO`,\r\n" +
+            "`TITLE` )\r\n" +
             "VALUES\r\n" +
             "("
-            + "STR_TO_DATE(?,'%Y-%m-%d'),";
+            + "STR_TO_DATE(?,'%Y-%m-%d'),"
+    		+ "STR_TO_DATE(?,'%Y-%m-%d'),";
 
 
     public void registKenshu(
@@ -247,21 +252,25 @@ public class KenshuDao extends Dao
         if( !parameter3.equals("") )
         {
             sb.append("STR_TO_DATE( \"" +  parameter3 + "\" ,'%Y-%m-%d'),");
+            sb.append("STR_TO_DATE( \"" +  parameter3 + "\" ,'%Y-%m-%d'),");
         }
         else
         {
+            sb.append("NULL,");
             sb.append("NULL,");
         }
         if( !parameter4.equals("") )
         {
             sb.append("STR_TO_DATE( \"" +  parameter4 + "\" ,'%Y-%m-%d'),");
+            sb.append("STR_TO_DATE( \"" +  parameter4 + "\" ,'%Y-%m-%d'),");
         }
         else
         {
             sb.append("NULL,");
+            sb.append("NULL,");
         }
 
-        sb.append("?,?);");
+        sb.append("?,?,(select TITLE from `kyoso`.kenshumaster where `kyoso`.kenshumaster.KENSHUMASTER_ID=?));");
 
         System.out.println(sb.toString());
 
@@ -270,10 +279,12 @@ public class KenshuDao extends Dao
         try ( PreparedStatement stmt = con.prepareStatement( sb.toString() );)
         {
             stmt.setString(1, parameter2 );
+            stmt.setString(2, parameter2 );
 
 
-            stmt.setString(2, parameter );
-            stmt.setString(3, parameter5 );
+            stmt.setString(3, parameter );
+            stmt.setString(4, parameter5 );
+            stmt.setString(5, parameter );
 
             stmt.executeUpdate();
 

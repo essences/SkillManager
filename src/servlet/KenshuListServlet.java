@@ -33,7 +33,7 @@ public class KenshuListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding( "utf-8" );
 
-        String nendoStr= request.getParameter("searchType");
+        String nendoStr= request.getParameter("searchNendo");
 
         int nendo = 0;
 
