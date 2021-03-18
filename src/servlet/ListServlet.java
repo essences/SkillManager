@@ -66,6 +66,8 @@ public class ListServlet extends HttpServlet {
 
         String[] idList =  request.getParameterValues("hidden_employee_no");
         String[] sysIdList =  request.getParameterValues("hidden_system_no");
+        String[] checkBoxidList =  request.getParameterValues("employee_no");
+
 
         String[] jizen_shusseki1List =  request.getParameterValues("jizen_shusseki1");
         String[] jizen_shusseki2List =  request.getParameterValues("jizen_shusseki2");
@@ -80,8 +82,10 @@ public class ListServlet extends HttpServlet {
 
         for( int i =0; i< idList.length ; i++ )
         {
-            KenshujukouVo vo = new KenshujukouVo();
+            if( !isContainInList(checkBoxidList, idList[i]) )
+            	continue; //チェックボックスがセットされていなかったら登録しない
 
+            KenshujukouVo vo = new KenshujukouVo();
             vo.setShainid(  idList[i]    );
             vo.setSystemNo( sysIdList[i] );
 
