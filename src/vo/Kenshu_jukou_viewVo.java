@@ -98,6 +98,9 @@ public class Kenshu_jukou_viewVo implements Serializable{
      */
     private String cell_tel_no;
 
+    
+    private String  position;
+    
     /**
      * TITLE:varchar(255)
      */
@@ -188,7 +191,17 @@ public class Kenshu_jukou_viewVo implements Serializable{
     */
     public Kenshu_jukou_viewVo(){}
 
-    public int getKenshujukouid(){ return this.kenshujukouid; }
+    
+    
+    public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public int getKenshujukouid(){ return this.kenshujukouid; }
 
     public void setKenshujukouid(int kenshujukouid){ this.kenshujukouid = kenshujukouid; }
 
@@ -374,5 +387,6 @@ public class Kenshu_jukou_viewVo implements Serializable{
         buffer.append("]");
         return buffer.toString();
     }
+
 
 }

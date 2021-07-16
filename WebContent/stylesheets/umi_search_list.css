@@ -108,7 +108,7 @@
     min-width: 100px;
 }
 .searchResult-table-email-header {
-    min-width: 100px;
+    min-width: 80px;
     width: 350px;
 }
 .searchResult-table-telno-header {
@@ -132,7 +132,7 @@
 .altnoneLine
 {
     min-width: 50px;
-    width: 120px;
+    width: 140px;
 }
 .noneLine
 {

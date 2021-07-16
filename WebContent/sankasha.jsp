@@ -61,6 +61,7 @@
 
                     <th  class="altnoneLine">ふりがな</th>
                     <th  class="altnoneLine">事業本部</th>
+                    <th  class="altnoneLine">役職</th>
                     <th  class="altnoneLine">e-mail</th>
                      <th  class="altnoneLine">tell</th>
                     <th class="noneLine">
@@ -76,11 +77,7 @@
                             <%=(bean.getKaisaidate3()==null)?"":bean.getKaisaidate3() %>
                     </th>
                     <th class="searchResult-table-keiyakusaki-header">受講時年次</th>
-                    <th class="searchResult-table-keiyakusaki-header">みなし年次</th>
                     <th class="searchResult-table-email-header">欠席理由</th>
-                    <th class="noneLine">現場上長社員No.</th>
-                    <th class="searchResult-table-name-header">現場上長氏名</th>
-                    <th  class="altnoneLine">現場上長e-mail</th>
                     <th class="noneLine">中途入社対応</th>
 
                 </tr>
@@ -101,6 +98,7 @@
                         <td> <%=line.getEmployee_family_name() %><%=line.getEmployee_first_name() %> </td>
                         <td  class="altnoneLine"> <%=line.getEmployee_family_name_kana() %><%=line.getEmployee_first_name_kana() %> </td>
                         <td  class="altnoneLine"> <%=( line.getGroup_name()==null || line.getGroup_name().equals(""))?line.getDept_name():line.getGroup_name()  %></td>
+                        <td  class="altnoneLine"> <%= (line.getPosition()==null)?"":line.getPosition() %></td>
                         <td  class="altnoneLine"> <%=line.getEmail() %></td>
                         <td  class="altnoneLine"> '<%=line.getCell_tel_no() %></td>
                         <td  class="noneLine">
@@ -134,21 +132,11 @@
                             <%} %>
                         </td>
                         <td><%=line.getToujitu_nenji() %></td>
-                        <td><%=line.getChuto_ninasinenji() %></td>
 
                         <td class="noneLine">
                             <textarea name="kessekiriyu"><%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %></textarea>
                         </td>
                         <td class="altnoneLine"><%=(line.getKessekiriyu()==null)?"":line.getKessekiriyu() %></td>
-                        <td class="noneLine">
-                           <input type="text"  name="genba_joucho_emp_no"
-                              value ="<%=(line.getGenba_joucho_emp_no()==null)?"":line.getGenba_joucho_emp_no() %>" >
-                        </td>
-                        <td>
-                            <%=(line.getEmployee_family_name_j()==null)?"":line.getEmployee_family_name_j() %>
-                            <%=(line.getEmployee_first_name_j()==null)?"":line.getEmployee_first_name_j() %>
-                        </td>
-                        <td  class="altnoneLine"><%=(line.getEmail_j()==null)?"":line.getEmail_j() %></td>
                         <td  class="noneLine"><%=(line.getBiko()==null)?"":line.getBiko() %></td>
 
                     </tr>

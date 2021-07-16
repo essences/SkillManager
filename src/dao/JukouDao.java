@@ -35,7 +35,8 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`EMPLOYEE_FAMILY_NAME_KANA`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME_KANA`,\r\n" +
             "    `kenshu_jukou_view`.`EMAIL`,\r\n" +
-            "    `kenshu_jukou_view`.`CELL_TEL_NO`,\r\n" +
+            "    `kenshu_jukou_view`.`CELL_TEL_NO`,\r\n" + 
+            "    `kenshu_jukou_view`.`POSITION`,\\r\\n" +
             "    `kenshu_jukou_view`.`TITLE`,\r\n" +
             "    `kenshu_jukou_view`.`NUMDAYS`,\r\n" +
             "    `kenshu_jukou_view`.`toujitu_nenji`,\r\n" +
@@ -115,8 +116,9 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FAMILY_NAME_KANA`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME_KANA`,\r\n" +
-            "    `kenshu_jukou_view`.`EMAIL`,\r\n" +
+            "    `kenshu_jukou_view`.`EMAIL`,\r\n" +            
             "    `kenshu_jukou_view`.`CELL_TEL_NO`,\r\n" +
+            "    `kenshu_jukou_view`.`POSITION`,\r\n" +
             "    `kenshu_jukou_view`.`TITLE`,\r\n" +
             "    `kenshu_jukou_view`.`NUMDAYS`,\r\n" +
             "    `kenshu_jukou_view`.`toujitu_nenji`,\r\n" +
@@ -167,6 +169,7 @@ public class JukouDao extends Dao
                 vo.setKessekiriyu(				rset.getString(	"KESSEKIRIYU") 			);
                 vo.setKenshujissekiid(			rset.getInt(	"KENSHUJISSEKIID")		);
                 vo.setTitle(					rset.getString(	"TITLE")				);
+                vo.setPosition(					rset.getString(	"POSITION")				);
                 vo.setToujitu_nenji(			rset.getLong(	"toujitu_nenji")		);
                 vo.setNenji(					rset.getLong(	"nenji")				);
                 vo.setChuto_ninasinenji(		rset.getInt(	"chuto_ninasinenji")	);
