@@ -35,8 +35,8 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`EMPLOYEE_FAMILY_NAME_KANA`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME_KANA`,\r\n" +
             "    `kenshu_jukou_view`.`EMAIL`,\r\n" +
-            "    `kenshu_jukou_view`.`CELL_TEL_NO`,\r\n" + 
-            "    `kenshu_jukou_view`.`POSITION`,\\r\\n" +
+            "    `kenshu_jukou_view`.`CELL_TEL_NO`,\r\n" +
+            "    `kenshu_jukou_view`.`POSITION`,\r\n" +
             "    `kenshu_jukou_view`.`TITLE`,\r\n" +
             "    `kenshu_jukou_view`.`NUMDAYS`,\r\n" +
             "    `kenshu_jukou_view`.`toujitu_nenji`,\r\n" +
@@ -116,7 +116,7 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FAMILY_NAME_KANA`,\r\n" +
             "    `kenshu_jukou_view`.`EMPLOYEE_FIRST_NAME_KANA`,\r\n" +
-            "    `kenshu_jukou_view`.`EMAIL`,\r\n" +            
+            "    `kenshu_jukou_view`.`EMAIL`,\r\n" +
             "    `kenshu_jukou_view`.`CELL_TEL_NO`,\r\n" +
             "    `kenshu_jukou_view`.`POSITION`,\r\n" +
             "    `kenshu_jukou_view`.`TITLE`,\r\n" +
