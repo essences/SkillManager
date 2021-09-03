@@ -136,7 +136,7 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`DEPT_NAME`  \r\n" +
             " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `KENSHUJISSEKIID`=? "+
-            " ORDER BY `EMPLOYEE_NO` ";
+            " ORDER BY CAST(`EMPLOYEE_FAMILY_NAME_KANA` as CHAR) ";
 
     public void getSankashaList(List<Kenshu_jukou_viewVo> list, String kenshuJissekiid) throws SQLException
     {

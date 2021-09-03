@@ -83,7 +83,7 @@ public class SankashaServlet extends HttpServlet {
 
             vo.setKessekiriyu(	kessekiriyuList[i]	);
 
-            vo.setGenba_joucho_emp_no(genba_joucho_emp_noList[i]);
+            //vo.setGenba_joucho_emp_no(genba_joucho_emp_noList[i]);
 
 
             list.add(vo);

@@ -30,12 +30,16 @@
                <div class="searchJoken-input-box">
                 <strong>実施研修ごと社員リスト</strong>
              </div>
+            <div class="searchJoken-button-box">
+                <input type="button" name="clear" id="searchButton" value="チェックボックスクリア"  onclick="allcheckfalse();">
+                <input type="button" name="allcheck" id="searchButton" value="オールチェック"  onclick="allchecktrue2();">
              <p style="text-align: right">
                  <strong> 入力欄表示 ：</strong><input name="check_type" type="checkbox" onclick="changeCell('noneLine');">
                  <input type="submit" name="regist_shain_to_kenshu"
                      class="regist_shain_to_kenshu" id="regist_shain_to_kenshu_button" value="情報を更新"
                      onclick='return confirm("このリストを本当に更新しますか？");' >
             </p>
+            </div>
             <hr>
             <div class="searchJoken-input-box">
              研修名<%=bean.getTitle() %>：開催日程:<%=bean.getKaisaidate() %>

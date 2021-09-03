@@ -16,7 +16,12 @@ import java.io.Serializable;
  */
 public class KenshujukouVo implements Serializable{
 
-    public static final String TABLE = "KENSHUJUKOU";
+    /**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public static final String TABLE = "KENSHUJUKOU";
 
     /**
      * KENSHUJUKOUID:int(10) <Primary Key>

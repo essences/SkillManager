@@ -19,17 +19,34 @@ $(function() {
 
 function allchecktrue()
 {
+	 alert();
     var elementsCount = document.searchForm.elements.length;
     for( i=0 ; i<elementsCount ; i++ )
     {
         document.searchForm.elements[i].checked = true;
     }
 }
+
+function allchecktrue2()
+{
+   var elementsCount = document.searchForm.elements.length;
+    for( i=0 ; i<elementsCount ; i++ )
+    {
+		if(document.searchForm.elements[i].name == 'deleleCkecbox')
+		{ continue; }
+        document.searchForm.elements[i].checked = true;
+    }
+}
+
 function allcheckfalse()
 {
     var elementsCount = document.searchForm.elements.length;
     for( i=0 ; i<elementsCount ; i++ )
     {
+		if(document.searchForm.elements[i].name == 'check_type')
+		{ continue; }
+
+
         document.searchForm.elements[i].checked = false;
     }
 }

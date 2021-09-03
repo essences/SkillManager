@@ -1,6 +1,7 @@
+
+<%@page import="domain.SearchType"%>
+<%@page import="domain.SearchType"%>
 <%@page import="domain.SearchSort"%>
-<%@page import="domain.SearchType"%>
-<%@page import="domain.SearchType"%>
 <%@page import="vo.Shainmaster_wo_retire_viewVo"%>
 
 <%@ page language="java" import="java.util.*"
