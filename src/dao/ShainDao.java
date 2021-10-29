@@ -107,7 +107,7 @@ public class ShainDao extends Dao
         else if ( searchSort == SearchSort.みなし年次 )
             sql.append(" ORDER BY `chuto_ninasinenji`,`EMPLOYEE_NO` desc ");
         else
-            sql.append(" ORDER BY `EMPLOYEE_FAMILY_NAME_KANA` ");
+            sql.append(" ORDER BY CAST(`EMPLOYEE_FAMILY_NAME_KANA` as CHAR)  ");
 
         System.out.println(sql.toString());
 
