@@ -66,6 +66,7 @@
                     <th  class="altnoneLine">ふりがな</th>
                     <th  class="altnoneLine">事業本部</th>
                     <th  class="altnoneLine">役職</th>
+                    <th  class="altnoneLine">中途</th>                    
                     <th  class="altnoneLine">e-mail</th>
                      <th  class="altnoneLine">tell</th>
                     <th class="noneLine">
@@ -102,7 +103,8 @@
                         <td> <%=line.getEmployee_family_name() %><%=line.getEmployee_first_name() %> </td>
                         <td  class="altnoneLine"> <%=line.getEmployee_family_name_kana() %><%=line.getEmployee_first_name_kana() %> </td>
                         <td  class="altnoneLine"> <%=( line.getGroup_name()==null || line.getGroup_name().equals(""))?line.getDept_name():line.getGroup_name()  %></td>
-                        <td  class="altnoneLine"> <%= (line.getPosition()==null)?"":line.getPosition() %></td>
+                        <td  class="altnoneLine"> <%=(line.getPosition()==null)?"":line.getPosition() %></td>
+                        <td  class="altnoneLine"> <%=(line.getMid_career_flg().equals("0"))?"":"中途" %></td> 
                         <td  class="altnoneLine"> <%=line.getEmail() %></td>
                         <td  class="altnoneLine"> '<%=line.getCell_tel_no() %></td>
                         <td  class="noneLine">

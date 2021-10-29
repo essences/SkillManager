@@ -171,6 +171,17 @@ public class Kenshu_jukou_viewVo implements Serializable{
      */
     private String group_name;
 
+    //`MID_CAREER_FLG`
+  	private String mid_career_flg;
+  	
+  	
+  	public String getMid_career_flg() {
+  		return mid_career_flg;
+  	}
+
+  	public void setMid_career_flg(String mid_career_flg) {
+  		this.mid_career_flg = mid_career_flg;
+  	}
 
 
     /**
@@ -321,72 +332,24 @@ public class Kenshu_jukou_viewVo implements Serializable{
 
     public void setDept_name(String dept_name){ this.dept_name = dept_name; }
 
-    public String toString(){
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("[Kenshu_jukou_viewVo:");
-        buffer.append(" kenshujukouid: ");
-        buffer.append(kenshujukouid);
-        buffer.append(" is_shusseki: ");
-        buffer.append(is_shusseki);
-        buffer.append(" is_shusseki2: ");
-        buffer.append(is_shusseki2);
-        buffer.append(" is_shusseki3: ");
-        buffer.append(is_shusseki3);
-        buffer.append(" kaisaidate: ");
-        buffer.append(kaisaidate);
-        buffer.append(" kaisaidate2: ");
-        buffer.append(kaisaidate2);
-        buffer.append(" kaisaidate3: ");
-        buffer.append(kaisaidate3);
-        buffer.append(" kenshujissekiid: ");
-        buffer.append(kenshujissekiid);
-        buffer.append(" kessekiriyu: ");
-        buffer.append(kessekiriyu);
-        buffer.append(" employee_no: ");
-        buffer.append(employee_no);
-        buffer.append(" employee_family_name: ");
-        buffer.append(employee_family_name);
-        buffer.append(" employee_first_name: ");
-        buffer.append(employee_first_name);
-        buffer.append(" employee_family_name_kana: ");
-        buffer.append(employee_family_name_kana);
-        buffer.append(" employee_first_name_kana: ");
-        buffer.append(employee_first_name_kana);
-        buffer.append(" email: ");
-        buffer.append(email);
-        buffer.append(" cell_tel_no: ");
-        buffer.append(cell_tel_no);
-        buffer.append(" title: ");
-        buffer.append(title);
-        buffer.append(" numdays: ");
-        buffer.append(numdays);
-        buffer.append(" toujitu_nenji: ");
-        buffer.append(toujitu_nenji);
-        buffer.append(" nenji: ");
-        buffer.append(nenji);
-        buffer.append(" chuto_ninasinenji: ");
-        buffer.append(chuto_ninasinenji);
-        buffer.append(" genba_joucho_emp_no: ");
-        buffer.append(genba_joucho_emp_no);
-        buffer.append(" employee_family_name_j: ");
-        buffer.append(employee_family_name_j);
-        buffer.append(" employee_first_name_j: ");
-        buffer.append(employee_first_name_j);
-        buffer.append(" email_j: ");
-        buffer.append(email_j);
-        buffer.append(" biko: ");
-        buffer.append(biko);
-        buffer.append(" is_kakunin1: ");
-        buffer.append(is_kakunin1);
-        buffer.append(" is_kakunin2: ");
-        buffer.append(is_kakunin2);
-        buffer.append(" is_kakunin3: ");
-        buffer.append(is_kakunin3);
-        buffer.append(" dept_name: ");
-        buffer.append(dept_name);
-        buffer.append("]");
-        return buffer.toString();
-    }
+	@Override
+	public String toString() {
+		return "Kenshu_jukou_viewVo [kenshujukouid=" + kenshujukouid + ", is_shusseki=" + is_shusseki
+				+ ", is_shusseki2=" + is_shusseki2 + ", is_shusseki3=" + is_shusseki3 + ", kaisaidate=" + kaisaidate
+				+ ", kaisaidate2=" + kaisaidate2 + ", kaisaidate3=" + kaisaidate3 + ", kenshujissekiid="
+				+ kenshujissekiid + ", kessekiriyu=" + kessekiriyu + ", employee_no=" + employee_no
+				+ ", employee_family_name=" + employee_family_name + ", employee_first_name=" + employee_first_name
+				+ ", employee_family_name_kana=" + employee_family_name_kana + ", employee_first_name_kana="
+				+ employee_first_name_kana + ", email=" + email + ", cell_tel_no=" + cell_tel_no + ", position="
+				+ position + ", title=" + title + ", numdays=" + numdays + ", toujitu_nenji=" + toujitu_nenji
+				+ ", nenji=" + nenji + ", chuto_ninasinenji=" + chuto_ninasinenji + ", genba_joucho_emp_no="
+				+ genba_joucho_emp_no + ", employee_family_name_j=" + employee_family_name_j
+				+ ", employee_first_name_j=" + employee_first_name_j + ", email_j=" + email_j + ", biko=" + biko
+				+ ", is_kakunin1=" + is_kakunin1 + ", is_kakunin2=" + is_kakunin2 + ", is_kakunin3=" + is_kakunin3
+				+ ", group_name=" + group_name + ", mid_career_flg=" + mid_career_flg + ", dept_name=" + dept_name
+				+ "]";
+	}
 
+    
 
 }

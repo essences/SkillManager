@@ -105,6 +105,17 @@ public class KenshujukouVo implements Serializable{
 
     private String systemNo;
 
+  //`MID_CAREER_FLG`
+  	private String mid_career_flg;
+  	
+  	
+  	public String getMid_career_flg() {
+  		return mid_career_flg;
+  	}
+
+  	public void setMid_career_flg(String mid_career_flg) {
+  		this.mid_career_flg = mid_career_flg;
+  	}
 
     /**
     * Constractor
@@ -194,43 +205,17 @@ public class KenshujukouVo implements Serializable{
 		this.systemNo = systemNo;
 	}
 
-	public String toString(){
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("[KenshujukouVo:");
-        buffer.append(" kenshujukouid: ");
-        buffer.append(kenshujukouid);
-        buffer.append(" is_shusseki: ");
-        buffer.append(is_shusseki);
-        buffer.append(" is_shusseki2: ");
-        buffer.append(is_shusseki2);
-        buffer.append(" is_shusseki3: ");
-        buffer.append(is_shusseki3);
-        buffer.append(" kenshujissekiid: ");
-        buffer.append(kenshujissekiid);
-        buffer.append(" kessekiriyu: ");
-        buffer.append(kessekiriyu);
-        buffer.append(" shainid: ");
-        buffer.append(shainid);
-        buffer.append(" shainname: ");
-        buffer.append(shainname);
-        buffer.append(" title: ");
-        buffer.append(title);
-        buffer.append(" genba_joucho_emp_no: ");
-        buffer.append(genba_joucho_emp_no);
-        buffer.append(" is_kakunin1: ");
-        buffer.append(is_kakunin1);
-        buffer.append(" is_kakunin2: ");
-        buffer.append(is_kakunin2);
-        buffer.append(" is_kakunin3: ");
-        buffer.append(is_kakunin3);
-        buffer.append(" create_at: ");
-        buffer.append(create_at);
-        buffer.append(" updated_at: ");
-        buffer.append(updated_at);
-        buffer.append(" is_muko: ");
-        buffer.append(is_muko);
-        buffer.append("]");
-        return buffer.toString();
-    }
+	@Override
+	public String toString() {
+		return "KenshujukouVo [kenshujukouid=" + kenshujukouid + ", is_shusseki=" + is_shusseki + ", is_shusseki2="
+				+ is_shusseki2 + ", is_shusseki3=" + is_shusseki3 + ", kenshujissekiid=" + kenshujissekiid
+				+ ", kessekiriyu=" + kessekiriyu + ", shainid=" + shainid + ", shainname=" + shainname + ", title="
+				+ title + ", genba_joucho_emp_no=" + genba_joucho_emp_no + ", is_kakunin1=" + is_kakunin1
+				+ ", is_kakunin2=" + is_kakunin2 + ", is_kakunin3=" + is_kakunin3 + ", create_at=" + create_at
+				+ ", updated_at=" + updated_at + ", is_muko=" + is_muko + ", systemNo=" + systemNo + ", mid_career_flg="
+				+ mid_career_flg + "]";
+	}
+
+
 
 }

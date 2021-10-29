@@ -102,7 +102,7 @@
                     <th class="searchResult-table-busho-header">部署</th>
                     <th class="searchResult-table-yakushoku-header">役職</th>
                     <th class="altnoneLine">年次</th>
-                    <th class="searchResult-table-detail-header">中途入社社員みなし年次</th>
+                    <th class="searchResult-table-detail-header">中途</th>
                     <th class="altnoneLine">メールアドレス</th>
                     <th class="altnoneLine">電話番号</th>
                     <th class="noneLine">中途入社対応</th>
@@ -141,7 +141,7 @@
                         <td><%=( line.getGroup_name()==null || line.getGroup_name().equals(""))?line.getDept_name():line.getGroup_name() %></td>
                         <td><%=(line.getPosition()==null)?"":line.getPosition() %></td>
                         <td class="altnoneLine"><%=line.getNenji() %></td>
-                        <td><%=(line.getChuto_ninasinenji()==0)?"": line.getChuto_ninasinenji() %></td>
+                        <td><%=(line.getMid_career_flg().equals("0"))?"":"中途" %></td>
                         <td class="altnoneLine"><%=line.getEmail() %></td>
                         <td class="altnoneLine">'<%=line.getTel_no() %></td>
                         <td class="noneLine"><%=(line.getBiko()==null)?"":line.getBiko() %></td>

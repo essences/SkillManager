@@ -19,7 +19,6 @@ $(function() {
 
 function allchecktrue()
 {
-	 alert();
     var elementsCount = document.searchForm.elements.length;
     for( i=0 ; i<elementsCount ; i++ )
     {

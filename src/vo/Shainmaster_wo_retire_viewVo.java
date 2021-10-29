@@ -165,6 +165,19 @@ public class Shainmaster_wo_retire_viewVo implements Serializable{
 	 */
 	private String biko;
 
+	
+	//`MID_CAREER_FLG`
+	private String mid_career_flg;
+	
+	
+	public String getMid_career_flg() {
+		return mid_career_flg;
+	}
+
+	public void setMid_career_flg(String mid_career_flg) {
+		this.mid_career_flg = mid_career_flg;
+	}
+
 	/**
 	* Constractor
 	*/

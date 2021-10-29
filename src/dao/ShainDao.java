@@ -50,7 +50,8 @@ public class ShainDao extends Dao
             "    `shainmaster_wo_retire_view`.`UPGRADE_DATE`,\r\n" +
             "    `shainmaster_wo_retire_view`.`chuto_ninasinenji`,\r\n" +
             "    `shainmaster_wo_retire_view`.`biko`,\r\n" +
-            "    `shainmaster_wo_retire_view`.`system_no`\r\n" +
+            "    `shainmaster_wo_retire_view`.`system_no`,\r\n" +
+            "    `shainmaster_wo_retire_view`.`MID_CAREER_FLG`\r\n" +
             "FROM `kyoso`.`shainmaster_wo_retire_view`\r\n" +
             "";
 
@@ -127,11 +128,11 @@ public class ShainDao extends Dao
                 vo.setEmployee_first_name_kana( rset.getString(	"EMPLOYEE_FIRST_NAME_KANA")  );
                 vo.setNenji(					rset.getLong(	"nenji")				);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
-                vo.setGroup_name(				rset.getString(	"GROUP_NAME"));
+                vo.setGroup_name(				rset.getString(	"GROUP_NAME")			);
                 vo.setPosition(					rset.getString("POSITION")				);
                 vo.setEmail(					rset.getString("EMAIL")					);
                 vo.setTel_no(					rset.getString("CELL_TEL_NO")			);
-                vo.setChuto_ninasinenji(		rset.getInt("chuto_ninasinenji")		);
+                vo.setMid_career_flg(			rset.getString("MID_CAREER_FLG")		);
                 vo.setBiko(						rset.getString("biko")					);
                 vo.setSystem_no(				rset.getString("system_no")				);
 

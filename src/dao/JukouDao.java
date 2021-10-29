@@ -51,7 +51,8 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`IS_KAKUNIN2`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN3`, \r\n" +
             "    `kenshu_jukou_view`.`GROUP_NAME`, \r\n" +
-            "    `kenshu_jukou_view`.`DEPT_NAME` \r\n" +
+            "    `kenshu_jukou_view`.`DEPT_NAME`, \r\n" +
+            "    `kenshu_jukou_view`.`MID_CAREER_FLG`\r\n" +
             " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `EMPLOYEE_NO`=?"+
             " ORDER BY `KAISAIDATE` ";
@@ -94,8 +95,9 @@ public class JukouDao extends Dao
                 vo.setIs_kakunin3(				rset.getInt(	"IS_KAKUNIN3")	);
                 vo.setGroup_name(				rset.getString(	"GROUP_NAME")			);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
+                vo.setMid_career_flg(			rset.getString(	"MID_CAREER_FLG")			);
 
-                list.add(vo);
+                list.add( vo );
             }
         }
     }
@@ -133,7 +135,9 @@ public class JukouDao extends Dao
             "    `kenshu_jukou_view`.`IS_KAKUNIN2`,\r\n" +
             "    `kenshu_jukou_view`.`IS_KAKUNIN3`, \r\n" +
             "    `kenshu_jukou_view`.`GROUP_NAME`, \r\n" +
-            "    `kenshu_jukou_view`.`DEPT_NAME`  \r\n" +
+            "    `kenshu_jukou_view`.`DEPT_NAME`,  \r\n" +
+            "    `kenshu_jukou_view`.`MID_CAREER_FLG`  \r\n" +
+            
             " FROM `kyoso`.`kenshu_jukou_view`\r\n" +
             " WHERE `KENSHUJISSEKIID`=? "+
             " ORDER BY CAST(`EMPLOYEE_FAMILY_NAME_KANA` as CHAR) ";
@@ -183,7 +187,7 @@ public class JukouDao extends Dao
                 vo.setIs_kakunin3(				rset.getInt(	"IS_KAKUNIN3")	);
                 vo.setGroup_name(				rset.getString(	"GROUP_NAME")			);
                 vo.setDept_name(				rset.getString(	"DEPT_NAME")			);
-
+                vo.setMid_career_flg(			rset.getString(	"MID_CAREER_FLG")		);
 
                 list.add(vo);
             }
