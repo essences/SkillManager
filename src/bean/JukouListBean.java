@@ -13,8 +13,8 @@ public class JukouListBean implements List<Kenshu_jukou_viewVo>
     private List<Kenshu_jukou_viewVo> list = new ArrayList<Kenshu_jukou_viewVo>();
 
 
-
     /**
+     * 
      * EMPLOYEE_NO:varchar(255)
      */
     private String employee_no;

@@ -152,11 +152,19 @@ public class ListServlet extends HttpServlet {
              String searchJoken = (request.getParameter("searchJoken")==null)?"":request.getParameter("searchJoken");
              String prevSearchJoken =searchJoken;
 
-
-             int searchNendo
-                 = (request.getParameter("searchNendo")==null)?LocalDate.now().getYear() : Integer.parseInt(request.getParameter("searchNendo"));
-             String presearchNendo = new Integer(searchNendo).toString();
-
+             String presearchNendo = "";
+             int searchNendo = 0;
+             try
+             {
+            	 searchNendo
+            	 	= (request.getParameter("searchNendo")==null)?LocalDate.now().getYear() : Integer.parseInt(request.getParameter("searchNendo"));
+             	presearchNendo = new Integer(searchNendo).toString();
+             }
+             catch(Exception e)
+             {
+            	 //ALL　のときなにもしない。 
+             }
+             
              if( searchType== SearchType.年次 && searchJoken!=null && searchJoken.length()!=0 )
              {
                  try {

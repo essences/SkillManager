@@ -49,6 +49,7 @@
                 <option value="2019"   <%=(bean.getPrevSearchNendo().equals("2019" ))? "selected":"" %>>2019</option>
                 <option value="2020"   <%=(bean.getPrevSearchNendo().equals("2020" ))? "selected":"" %>>2020</option>
                 <option value="2021"   <%=(bean.getPrevSearchNendo().equals("2021" ))? "selected":"" %>>2021</option>
+                <option value="2022"   <%=(bean.getPrevSearchNendo().equals("2022" ))? "selected":"" %>>2022</option>
             </select>
 
             <hr>
